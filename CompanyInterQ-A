@@ -4,9 +4,61 @@ String
 @reposirey why we use what is abstaract class and interfce discribe your porject microservices advanatge of functinaol interface abstact class why we use if we have interface
 what are the languagest did you use in your project
 
-RBI [4:12 PM, 5/4/2024] Abhishek Pal: How to add the new entity in jpa and Java [4:12 PM, 5/4/2024] Abhishek Pal: String me vowels kese print karaye [4:13 PM, 5/4/2024] Abhishek Pal: JAP annotation [4:13 PM, 5/4/2024] Abhishek Pal: Angular host [4:15 PM, 5/4/2024] Abhishek Pal: How to add new functionality in your current project [4:16 PM, 5/4/2024] Abhishek Pal: Project related questions
+RBI  
+How to add the new entity in jpa and Java 
+ String me vowels kese print karaye 
+  JAP annotation  
+  Angular host  
+  How to add new functionality in your current project  
+  Project related questions
 
-TCS Rest contreoller and controller.
+TCS 
+
+Rest contreoller and controller.
+
+ANS - 
+@Controller
+Purpose: It is used to define a standard web controller that can handle HTTP requests and return views.
+Return Type: Methods annotated with @Controller typically return ModelAndView or a view name as a String, which is resolved to an actual view (like a JSP or Thymeleaf template).
+Usage: Commonly used in traditional web applications where server-side rendered views are returned to the client.
+Example:
+java
+Copy code
+@Controller
+public class MyController {
+    @GetMapping("/hello")
+    public String sayHello(Model model) {
+        model.addAttribute("message", "Hello, World!");
+        return "hello"; // This is the name of the view (e.g., hello.jsp or hello.html)
+    }
+}
+@RestController
+Purpose: It is a specialized version of @Controller used to create RESTful web services. It simplifies the creation of RESTful APIs by eliminating the need to annotate every @RequestMapping method with @ResponseBody.
+Return Type: Methods in a @RestController return data directly (usually JSON or XML) instead of a view. The returned data is automatically serialized into the appropriate format (typically JSON).
+Usage: Commonly used in RESTful web services where the focus is on returning data rather than views.
+Example:
+java
+Copy code
+@RestController
+public class MyRestController {
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello, World!"; // This will be returned as a plain text response (or JSON/XML if it's an object)
+    }
+}
+
+Annotation:
+
+@Controller: General-purpose controller for handling web requests and returning views.
+@RestController: Specialized controller for RESTful services that combines @Controller and @ResponseBody.
+Response Handling:
+
+@Controller: Methods return views, with model data passed along for rendering on the server side.
+@RestController: Methods return objects that are serialized directly into HTTP response bodies (usually JSON).
+View Resolution:
+
+@Controller: Returns a view name, and the view resolver resolves it to a concrete view.
+@RestController: Directly returns data, bypassing view resolution
 
 JPA and why we JPA hibernet.
 
