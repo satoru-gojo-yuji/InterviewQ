@@ -100,3 +100,16 @@ anonoumus arry and inter class
 and announomus class 
 Date API new feture for in java 8 
 
+Infosys
+
+1. Transion Kayword 
+2. Diamond problem
+3. String immutable 
+4. Pass failed in collection
+5. How to pass data from one application to another application
+6. How to read the application.property file
+7. How many way we can do the overload method 
+8. diff. comparable and comparator 
+9. fail pass in collection 
+10. how to make singloeton 
+
