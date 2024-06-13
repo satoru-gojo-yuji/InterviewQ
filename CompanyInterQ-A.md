@@ -113,3 +113,14 @@ Infosys
 9. fail pass in collection 
 10. how to make singloeton 
 
+
+Saint Goblin 
+1. What is the defult patch in servelet
+2. How to write a code for immutable object 
+3. Serialization and deserialization  and what is serialization id 
+4. diff arry list and linklist 
+5. what is the default end point of URL
+6. Fouction on project 
+7. java 8 new feature and date api 
+8. Angular 
+
