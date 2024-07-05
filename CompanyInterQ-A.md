@@ -168,3 +168,18 @@ Wissen
 12. isolation level 
 13. map interface.
 
+
+
+Banck Intervieeww 
+
+1. What is the diff SB and MVC 
+2. What is the tranjaction annotaion 
+3. how to communicate with two microservices 
+4. how to remove the string repitaed charecter and replcae with some special charecter 
+5. diff list and set 
+6. what is linklist 
+7. what is microservices 
+8. controller and rest controller 
+9. why we use cruedrepositery instent of JPArepositery 
+10. 
+
