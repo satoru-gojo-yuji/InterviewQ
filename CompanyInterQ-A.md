@@ -124,3 +124,47 @@ Saint Goblin
 7. java 8 new feature and date api 
 8. Angular 
 
+
+
+Tech Mahindra 
+1. What is agile 
+2. what is SDLC
+3. what is class loader
+4. class path and variable diff
+5. Vector and arrtlist
+6. what is multi threading
+7. what is arrylist
+
+1. Java 8 feature 
+2. @transition 
+3. how you implement security 
+4. how you developer auth token 
+5. jwt 
+6. final keyword - class , var , method 
+7. functional interface 
+8. Exception handling
+9. if error is occure multiple times how to handle it. 
+10. throw and throws 
+11. Globle exception
+12. Exception and error 
+13. compile and runtime error 
+14. different bean
+15. 1 to many relationship implements
+16. Singleton design pattern 
+17. 1 emp has many address
+
+Wissen 
+1. what is map'
+2. hashmap
+3. it internal working
+4. how to implemetns linklist property
+5. merge tow arry
+6. post method 
+7. SOLID Property 
+8. transction 
+9. Spring mvc and sb 
+10. how to make classs imutable 
+11. server side paging 
+12. isolation level 
+13. map interface.
+
