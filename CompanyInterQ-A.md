@@ -102,7 +102,7 @@ Date API new feture for in java 8
 
 Infosys
 
-1. Transion Kayword 
+1. Transiant Kayword 
 2. Diamond problem
 3. String immutable 
 4. Pass failed in collection
