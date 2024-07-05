@@ -176,10 +176,45 @@ Banck Intervieeww
 2. What is the tranjaction annotaion 
 3. how to communicate with two microservices 
 4. how to remove the string repitaed charecter and replcae with some special charecter 
+
+Code 
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class RemoveRepeatedCharacters {
+
+    public static void main(String[] args) {
+        String input = "aabbccdaeffg";
+        char specialChar = '\\';
+
+        String result = removeRepeatedCharacters(input, specialChar);
+        System.out.println("Modified String: " + result);
+    }
+
+    private static String removeRepeatedCharacters(String input, char specialChar) {
+        StringBuilder result = new StringBuilder();
+        Set<Character> seen = new HashSet<>();
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (seen.contains(c)) {
+                result.append(specialChar);
+            } else {
+                result.append(c);
+                seen.add(c);
+            }
+        }
+
+        return result.toString();
+    }
+}
+
+
 5. diff list and set 
 6. what is linklist 
 7. what is microservices 
 8. controller and rest controller 
 9. why we use cruedrepositery instent of JPArepositery 
-10. 
+
 
