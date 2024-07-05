@@ -216,5 +216,6 @@ public class RemoveRepeatedCharacters {
 7. what is microservices 
 8. controller and rest controller 
 9. why we use cruedrepositery instent of JPArepositery 
+10. what si ency. and dcryption. 
 
 
