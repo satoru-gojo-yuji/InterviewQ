@@ -220,3 +220,13 @@ public class RemoveRepeatedCharacters {
 11. what is achuater
 
 
+Mumbai Company
+1. What is the difference between MVC and Spring boot 
+2. Singleton and static class design pattern 
+3. Link list and arry list 
+4. Interface and abstract class 
+5. JPA and orm tool
+6. System.out.println 
+7. Springspacuter
+
+
