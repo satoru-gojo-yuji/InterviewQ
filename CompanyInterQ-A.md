@@ -90,8 +90,29 @@ Input: String [] strArr={"apple","aappllee","","aabbcde","kettle"};
 Output: Character [] chArr={'a','0','\u0000','c','k'};
 
 
+
+
 Given an array of random numbers, push all the zeroes of a given array to the end of the array. For example, if the given array is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same.
 Expected time complexity is O(n) and extra space is O(1).
+
+ public static void main(String[] args) {
+        int[] arr={1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0};
+  int n =arr.length;
+        System.out.println(n);
+        int c =0;
+        for(int i=0 ; i<n ; i++) {
+            if (arr[i] != 0)
+                arr[c++] = arr[i];
+        }
+        System.out.println(c);
+            while (c < n)
+            {
+                arr[c++] = 0;
+        }
+        for(int i=0 ; i<n ; i++)
+            System.out.println(arr[i]);
+    }
+}
 
 diff. abstract class and interface real life 
 what are the new fatuer of java 8 
