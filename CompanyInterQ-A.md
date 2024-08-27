@@ -114,6 +114,33 @@ Expected time complexity is O(n) and extra space is O(1).
     }
 }
 
+
+Second method : 
+
+
+public class LastZero2 {
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 4, 0, 3, 0, 4, 6, 0, 5, 6, 0};
+
+        int last = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[last];
+                arr[last] = temp;
+                last++;
+            }
+        }
+        for(int a : arr)
+        {
+            System.out.println(a);
+        }
+    }
+}
+
 diff. abstract class and interface real life 
 what are the new fatuer of java 8 
 diff map and flatmap 
