@@ -82,6 +82,48 @@ finaly why we use ralred project / data base close
 
 what is indexing in SQL
 
+To create an immutable class in Java, follow these principles:
+
+Declare the class as final: This prevents other classes from subclassing it.
+
+Make all fields private and final: Fields must be private to prevent direct access, and final to ensure they can't be changed after construction.
+Provide no setters: Don't provide any methods that can modify the fields.
+
+Initialize fields only via constructor: The only way to set the values of the fields should be through the constructor.
+
+Return deep copies of mutable fields: If your class contains mutable objects (like arrays, collections, or custom objects), return deep copies in getter methods to prevent the caller from modifying the original object.
+
+public final class Employee {
+    
+    // Fields are private and final
+    private final String name;
+    private final int age;
+    private final Address address;  // Mutable object
+
+    // Constructor initializes all fields
+    public Employee(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        // Create a deep copy of the Address to ensure immutability
+        this.address = new Address(address.getCity(), address.getZipCode());
+    }
+
+    // Only getters are provided, no setters
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    // Return a deep copy of the mutable field (Address) to ensure immutability
+    public Address getAddress() {
+        return new Address(address.getCity(), address.getZipCode());
+    }
+}
+
+
 
 KPMG 
 Find the very first non-repeating character in a string array
