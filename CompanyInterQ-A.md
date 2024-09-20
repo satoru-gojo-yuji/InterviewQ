@@ -215,7 +215,6 @@ Saint Goblin
 8. Angular 
 
 
-
 Tech Mahindra 
 1. What is agile 
 2. what is SDLC
@@ -224,6 +223,7 @@ Tech Mahindra
 5. Vector and arrtlist
 6. what is multi threading
 7. what is arrylist
+
 
 1. Java 8 feature 
 2. @transition 
@@ -318,5 +318,15 @@ Mumbai Company
 5. JPA and orm tool
 6. System.out.println 
 7. Springspacuter
+
+
+
+1. What is Dispatch servlet 
+2. Arrylist and lindlist 
+3. Linkedhasset and treehasset 
+4. Restcontroller and controller 
+5. Frequency count code 
+6. Https code 200 201 202
+7. JPA hibernate differacne 
 
 
