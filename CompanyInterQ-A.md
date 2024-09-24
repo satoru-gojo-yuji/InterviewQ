@@ -198,6 +198,15 @@ Infosys
 4. Pass failed in collection
 5. How to pass data from one application to another application
 6. How to read the application.property file
+
+In a Spring Boot application, you can read properties from the application.properties (or application.yml) file using various methods, including using the @Value annotation, @ConfigurationProperties annotation, or by directly injecting the Environment object. Here are the approaches:
+
+You can read a single property from the application.properties file using the @Value annotation. 
+
+The @ConfigurationProperties annotation is more useful for grouping related properties into a POJO (Plain Old Java Object). It can bind hierarchical properties to a class.
+
+You can use the Environment object to access properties dynamically at runtime. The Environment object is part of the Spring framework and can be autowired into any Spring component.
+
 7. How many way we can do the overload method 
 8. diff. comparable and comparator 
 9. fail pass in collection 
@@ -329,5 +338,72 @@ Comany  Init Kolkata
 5. Frequency count code 
 6. Https code 200 201 202
 7. JPA hibernate differacne 
+8. How to connect two database in Spring boot
 
+You need to create separate DataSource beans for each database in a configuration class.
+
+DataSource
+EntityManagerFactory (userEntityManager)
+TransactionManager (userTransactionManager)
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+
+import javax.sql.DataSource;
+
+@Configuration
+public class DataSourceConfig {
+
+    // First DataSource configuration
+    @Bean(name = "firstDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource firstDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    // Second DataSource configuration
+    @Bean(name = "secondDataSource")
+    @ConfigurationProperties(prefix = "second.datasource")
+    public DataSource secondDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    // EntityManagerFactory and TransactionManager for the first DB (for JPA)
+    @Bean(name = "firstEntityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean firstEntityManagerFactory(
+        @Qualifier("firstDataSource") DataSource dataSource) {
+        return new LocalContainerEntityManagerFactoryBean();
+    }
+
+    @Bean(name = "firstTransactionManager")
+    public JpaTransactionManager firstTransactionManager(
+        @Qualifier("firstEntityManagerFactory") LocalContainerEntityManagerFactoryBean firstEntityManagerFactory) {
+        return new JpaTransactionManager(firstEntityManagerFactory.getObject());
+    }
+
+    // EntityManagerFactory and TransactionManager for the second DB (for JPA)
+    @Bean(name = "secondEntityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean secondEntityManagerFactory(
+        @Qualifier("secondDataSource") DataSource dataSource) {
+        return new LocalContainerEntityManagerFactoryBean();
+    }
+
+    @Bean(name = "secondTransactionManager")
+    public JpaTransactionManager secondTransactionManager(
+        @Qualifier("secondEntityManagerFactory") LocalContainerEntityManagerFactoryBean secondEntityManagerFactory) {
+        return new JpaTransactionManager(secondEntityManagerFactory.getObject());
+    }
+}
+
+You need to create separate DataSource beans for each database in a configuration class.
+
+Use @Primary to mark one of the data sources as the default one.
+Define separate EntityManager factories for each DataSource.
+If you're using JPA, you need to annotate the repositories with @EnableJpaRepositories and specify which EntityManager to use.
 
