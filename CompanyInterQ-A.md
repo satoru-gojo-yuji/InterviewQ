@@ -211,6 +211,29 @@ You can use the Environment object to access properties dynamically at runtime. 
 8. diff. comparable and comparator 
 9. fail pass in collection 
 10. how to make singloeton 
+11.  Singlton desing pattern 
+
+
+The Singleton design pattern is a creational design pattern that ensures a class has only one instance, and provides a global point of access to that instance. In Java, we use the Singleton design pattern for several reasons:
+When to use Singleton:
+
+Logger Classes: Singleton pattern is often used in logger classes to ensure that only one instance of the logger is created, and all log messages are written to the same log file.
+
+Configuration Classes: Singleton pattern can be used in configuration classes to ensure that only one instance of the configuration is created, and all parts of the application access the same configuration.
+
+Database Connection: Singleton pattern can be used to ensure that only one instance of the database connection is created, and all parts of the application access the same connection.
+
+public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
 
 
 Saint Goblin 
