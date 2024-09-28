@@ -210,6 +210,28 @@ You can use the Environment object to access properties dynamically at runtime. 
 7. How many way we can do the overload method 
 8. diff. comparable and comparator 
 9. fail pass in collection 
+
+Fail-Fast Iterators:
+Definition: Fail-Fast iterators immediately throw a ConcurrentModificationException if the collection is structurally modified after the iterator is created, except through the iterator's own methods (like remove).
+Behavior:
+If one thread modifies the collection (e.g., adding/removing elements) while another thread is iterating over it, the iterator detects this and throws an exception.
+Structural modifications are changes like inserting or deleting elements, but not updates to the existing elements.
+Examples:
+Iterators from collections like ArrayList, HashMap, LinkedList, and HashSet are Fail-Fast.
+Internal Working:
+Fail-Fast iterators use a mechanism called the modCount (modification count). Every time a structural modification is made to the collection, the modCount is updated. The iterator checks if the modCount has changed since the iterator was created, and if so, it throws a ConcurrentModificationException.
+
+
+Fail-Safe Iterators:
+Definition: Fail-Safe iterators do not throw an exception if the collection is modified during iteration. Instead, they work on a copy of the collection and do not reflect changes made to the original collection during iteration.
+Behavior:
+These iterators are generally used in concurrent environments where the collection might be modified while iterating.
+Since they operate on a copy, modifications made to the original collection after the iterator is created will not affect the iterator's behavior.
+Examples:
+Collections from the java.util.concurrent package like ConcurrentHashMap, CopyOnWriteArrayList, and CopyOnWriteArraySet use Fail-Safe iterators.
+Internal Working:
+Fail-Safe iterators work by iterating over a clone (snapshot) of the collection rather than the original collection, ensuring that the iteration is not impacted by structural modifications.
+
 10. how to make singloeton 
 11.  Singlton desing pattern 
 
@@ -283,6 +305,32 @@ public class Client {
 }
 
 
+12. Iterator Vs ListIterator
+
+
+Iterator:
+Definition: An interface that provides a way to traverse through elements in a collection, one at a time.
+
+Applicable to: Any collection (e.g., List, Set, Map, etc.) that implements the Iterable interface.
+
+Traversal Direction: Supports only forward traversal.
+
+Cannot iterate backward.
+Can remove elements but cannot modify or add elements during iteration.
+Can be used with all collections like List, Set, Map, but provides limited functionality.
+
+
+ ListIterator:
+Definition: A specialized sub-interface of Iterator, designed specifically for lists. It provides additional methods to traverse a list in both directions and modify elements during iteration.
+
+Applicable to: Only List types (e.g., ArrayList, LinkedList, etc.).
+
+Traversal Direction: Supports both forward and backward traversal.
+
+
+Can traverse in both forward and reverse directions.
+Allows modifying the list during iteration (e.g., adding or replacing elements).
+Provides the index of the elements being iterated, which is not possible with a regular Iterator.
 
 Saint Goblin 
 1. What is the defult patch in servelet
