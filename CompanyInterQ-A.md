@@ -235,6 +235,54 @@ public class Singleton {
 }
 
 
+12. Factory desing pattern 
+
+Factory Design Pattern in Java: Why and When to Use It
+
+The Factory design pattern is a creational design pattern that provides a way to create objects without exposing the creation logic to the client and refer to a newly created object using a common interface. In Java, we use the Factory design pattern for several reasons:
+
+Object Creation Complexity: Factory pattern is useful when the object creation process is complex and involves multiple steps or dependencies.
+
+Multiple Object Types: Factory pattern is useful when there are multiple types of objects that need to be created, and the client code needs to be decoupled from the specific object type.
+
+Dynamic Object Creation: Factory pattern is useful when the type of object to be created is determined at runtime.
+
+public abstract class Animal {
+    public abstract void sound();
+}
+
+public class Dog extends Animal {
+    public void sound() {
+        System.out.println("Woof!");
+    }
+}
+
+public class Cat extends Animal {
+    public void sound() {
+        System.out.println("Meow!");
+    }
+}
+
+public class AnimalFactory {
+    public static Animal createAnimal(String type) {
+        if (type.equals("dog")) {
+            return new Dog();
+        } else if (type.equals("cat")) {
+            return new Cat();
+        } else {
+            return null;
+        }
+    }
+}
+
+public class Client {
+    public static void main(String[] args) {
+        Animal animal = AnimalFactory.createAnimal("dog");
+        animal.sound(); // Output: Woof!
+    }
+}
+
+
 
 Saint Goblin 
 1. What is the defult patch in servelet
