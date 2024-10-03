@@ -531,6 +531,7 @@ If you're using JPA, you need to annotate the repositories with @EnableJpaReposi
 2. What is bad request In rest apis
 3. Arrylist and lindlist 
 4. What is Class loader 
+
 5. Finally and finalize difference
 
 
@@ -609,8 +610,11 @@ A constructor cannot be called as a method. It is called when object of the clas
 A parent class constructor is not inherited in child class and this is why super() is added automatically in child class constructor if there is no explicit call to super or this.
 
 
-11. Can we overriding static methods 
+11. Can we overriding static methods   
+
+No We can not override the static methods.
 12. Patch and put
+
 
 
 
