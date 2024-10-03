@@ -526,3 +526,20 @@ Use @Primary to mark one of the data sources as the default one.
 Define separate EntityManager factories for each DataSource.
 If you're using JPA, you need to annotate the repositories with @EnableJpaRepositories and specify which EntityManager to use.
 
+
+1. Different between throw and throws 
+2. What is bad request In rest apis
+3. Arrylist and lindlist 
+4. What is Class loader 
+5. Finally and finalize difference 
+6. Outer join and interjoin 
+7. Restcontroller and controller different 
+8. Why we use default and static method in interface 
+9. Numberformeate exceptions and one more 
+10. Can we overloading and overload construocter 
+11. Can we overriding static methods 
+12. Patch and put
+
+
+
+
