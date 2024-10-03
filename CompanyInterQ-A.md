@@ -455,9 +455,37 @@ Comany  Init Kolkata
 3. Linkedhasset and treehasset 
 4. Restcontroller and controller 
 5. Frequency count code 
+import java.util.HashMap;
+import java.util.Map;
+
+public class CharFrequencyCount {
+    public static void main(String[] args) {
+        // Input string
+        String str = "Abhishek";
+
+        // Convert string to lowercase to make the frequency count case-insensitive
+        str = str.toLowerCase();
+
+        // Map to store the frequency of each character
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        // Loop through the string using charAt() to count the frequency of each character
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);  // Get the character at index i
+            frequencyMap.put(ch, frequencyMap.getOrDefault(ch, 0) + 1);
+        }
+
+        // Print the frequency of each character
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println("Character: " + entry.getKey() + ", Frequency: " + entry.getValue());
+        }
+    }
+}
+
 6. Https code 200 201 202
 7. JPA hibernate differacne 
 8. How to connect two database in Spring boot
+
 
 You need to create separate DataSource beans for each database in a configuration class.
 
