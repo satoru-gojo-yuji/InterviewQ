@@ -531,14 +531,89 @@ If you're using JPA, you need to annotate the repositories with @EnableJpaReposi
 2. What is bad request In rest apis
 3. Arrylist and lindlist 
 4. What is Class loader 
-5. Finally and finalize difference 
+5. Finally and finalize difference
+
+
+Finally : 
+finally is a block which is used for exception handling along with try and catch blocks. finally block is always executed whether exception is raised or not and raised exception is handled or not. Most of time, this block is used to close the resources like database connection, I/O resources etc. 
+
+finalize() Method :
+ This method is called by  garbage collector thread before an object is removed from the memory. finalize() method is used to perform some clean up operations on an object before it is removed from the memory.
 6. Outer join and interjoin 
 7. Restcontroller and controller different 
 8. Why we use default and static method in interface 
-9. Numberformeate exceptions and one more 
+9. Numberformeate exceptions and one more  InputMismatchException
+
+ NumberFormatException
+The NumberFormatException typically occurs when using methods like Integer.parseInt(), Double.parseDouble(), or similar methods from the wrapper classes, and the string being parsed does not represent a valid number.
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String invalidNumber = "abc";
+            int number = Integer.parseInt(invalidNumber); // This will throw NumberFormatException
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format: " + e.getMessage());
+        }
+    }
+}
+
+The string "abc" is not a valid integer, so Integer.parseInt() throws a NumberFormatException.
+
+Trying to convert a non-numeric string into a number (e.g., "abc" to an integer).
+Trying to convert a string with inappropriate characters (e.g., "$100" or "123abc").
+Converting an empty string ("") to a number.
+Trying to convert a string that represents a number larger than the maximum value for that numeric type.
+
+INputMismatch 
+
+The InputMismatchException in Java is thrown by the Scanner class when the input provided does not match the expected type. It occurs when the program is expecting a particular type of input (like an integer or a double), but the user enters something that doesn't match that type.
+
+This exception is part of the java.util package.
+It's a runtime exception, meaning it’s unchecked, and the program doesn’t have to declare or catch it explicitly.
+The Scanner class methods, such as nextInt(), nextDouble(), etc., can throw this exception if the input does not match the expected type.
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        
+        try {
+            int number = scanner.nextInt();  // Expects an integer input
+            System.out.println("You entered: " + number);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Input is not a valid integer. Please enter a number.");
+        }
+    }
+}
+
+
+
 10. Can we overloading and overload construocter 
+
+
+Constructor is a block of code that allows you to create an object of class and has same name as class with no explicit return type.
+
+Whenever a class (child class) extends another class (parent class), the sub class inherits state and behavior in the form of variables and methods from its super class but it does not inherit constructor of super class because of following reasons:
+
+Constructors are special and have same name as class name. So if constructors were inherited in child class then child class would contain a parent class constructor which is against the constraint that constructor should have same name as class name. For example see the below code:
+
+
+If we define Parent class constructor inside Child class it will give compile time error for return type and consider it a method. But for print method it does not give any compile time error and consider it a overriding method.
+
+Now suppose if constructors can be inherited then it will be impossible to achieving encapsulation. Because by using a super class’s constructor we can access/initialize private members of a class.
+A constructor cannot be called as a method. It is called when object of the class is created so it does not make sense of creating child class object using parent class constructor notation. i.e. Child c = new Parent();
+A parent class constructor is not inherited in child class and this is why super() is added automatically in child class constructor if there is no explicit call to super or this.
+
+
 11. Can we overriding static methods 
 12. Patch and put
+
+
+
 
 
 
