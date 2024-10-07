@@ -711,12 +711,29 @@ No We can not override the static methods.
 
 NTT DATA
 1. How to handle the multiple requests in spring boot.
-2. Controller and restcontroller 
+2. Controller and restcontroller
+
 3. Globale exceptions.
-4. Microservices how to communicate with 2 microservices and .
-5. Sega design pattern to remove memory leaked.
+4. Microservices how to communicate with 2 microservices and.
+5. Saga design pattern
+5.  to remove memory leaked.
 6. @Qualifer and primary.
+
+Use @Primary to designate the default bean when multiple beans of the same type are present.
+
+Use @Qualifier when you want to specify a particular bean explicitly.
+
 7. Throw and throws 
+
+throw Keyword
+The throw keyword is used to explicitly throw an exception from a method or any block of code.
+You can use it to throw both checked and unchecked exceptions.
+When throw is used, it creates an instance of the exception class and passes it up the call stack to be handled by an appropriate catch block or propagated further.
+
+throws Keyword
+The throws keyword is used in a method signature to declare that the method might throw one or more exceptions. It informs the caller of the method that the exceptions must be handled or propagated further.
+It is typically used for checked exceptions, which need to be handled explicitly.
+
 8. How to create our own exception 
 9. How to push your code in perticular feature repo 
 10. And how to build that. 
@@ -726,6 +743,29 @@ NTT DATA
 14. Authentication and Automations
 15. How to secure your rest API
 16. Session factory why we use
+17. memory leake in java 8 feature 
+
+
+/*String inputString = " ABHISHEK INTERVIEW TODAY";
+
+13.  Arrange the input string in the alphabetical order of their occurrence . and also remove the duplicate characters.
+        Sample output - ABDEHIKNORSTVWY*/
+
+public class A {
+
+    public static void main(String[] args) {
+
+        String inputString = "ABHISHEK INTERVIEW TODAY";
+        String result = inputString.replaceAll("\\s+", "") // remove spaces
+                .chars()               // get stream of characters
+                .distinct()            // remove duplicates
+                .sorted()              // sort characters
+                .mapToObj(c -> String.valueOf((char)c)) // convert back to String
+                .collect(Collectors.joining()); // join the characters into a string
+
+        System.out.println(result); // Output: ABDEHIKNORSTVWY
+    }
+
 
 
 
