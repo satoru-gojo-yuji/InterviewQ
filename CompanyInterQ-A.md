@@ -194,6 +194,70 @@ Infosys
 
 1. Transiant Kayword 
 2. Diamond problem
+
+Talking about Multiple inheritance is when a child class is inherits the properties from more than one parents and the methods for the parents are same (Method name and parameters are exactly the same) then child gets confused about which method will be called. This problem in Java is called the Diamond problem.
+
+// Java Program to demonstrate 
+// Diamond Problem 
+import java.io.*; 
+
+// Parent Class1 
+class Parent1 { 
+	void fun() { System.out.println("Parent1"); } 
+} 
+
+// Parent Class2 
+class Parent2 { 
+	void fun() { System.out.println("Parent2"); } 
+} 
+
+// Inherting the Properties from 
+// Both the classes 
+class test extends Parent1, Parent2 { 
+	// main function 
+	public static void main(String[] args) 
+	{ 
+		test t = new test(); 
+		t.fun(); 
+	} 
+}
+
+Solution of Diamond Problem in Java
+Although Diamond Problem is a serious issue but we can create a solution for it which is Interface. Interface are created by using interface keyword. It contains all methods by default as abstract we don’t need to declared as abstract ,compiler will do it implicitly. We can’t instantiate interface for this we have to use a class which will implement the interface and will write the definitions of its all functions.
+// Java Programs to illustrate 
+// use of Interface to solve 
+// Diamond Problem 
+import java.io.*; 
+
+// Interfaces Declared 
+interface Parent1 { 
+	void fun(); 
+} 
+
+// Interfaces Declared 
+interface Parent2 { 
+	void fun(); 
+} 
+
+// Inheritance using Interfaces 
+class test implements Parent1, Parent2 { 
+	public void fun() 
+	{ 
+		System.out.println("fun function"); 
+	} 
+} 
+
+// Driver Class 
+class test1 { 
+	// main function 
+	public static void main(String[] args) 
+	{ 
+		test t = new test(); 
+		t.fun(); 
+	} 
+}
+
+
 3. String immutable 
 4. Pass failed in collection
 5. How to pass data from one application to another application
@@ -642,6 +706,26 @@ A parent class constructor is not inherited in child class and this is why super
 
 No We can not override the static methods.
 12. Patch and put
+
+
+
+NTT DATA
+1. How to handle the multiple requests in spring boot.
+2. Controller and restcontroller 
+3. Globale exceptions.
+4. Microservices how to communicate with 2 microservices and .
+5. Sega design pattern to remove memory leaked.
+6. @Qualifer and primary.
+7. Throw and throws 
+8. How to create our own exception 
+9. How to push your code in perticular feature repo 
+10. And how to build that. 
+11. Arrylist and linkedlist.
+12. Map flatmap difference
+13. Intermediate and terminal operations 
+14. Authentication and Automations
+15. How to secure your rest API
+16. Session factory why we use
 
 
 
