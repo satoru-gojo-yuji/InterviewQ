@@ -624,6 +624,23 @@ If you're using JPA, you need to annotate the repositories with @EnableJpaReposi
 3. Arrylist and lindlist 
 4. What is Class loader 
 
+In Java, ClassLoader is a part of the Java Runtime Environment (JRE) that dynamically loads Java classes into the Java Virtual Machine (JVM) during runtime. A class loader is responsible for locating, loading, and linking class files (usually .class files) as needed.
+
+
+1. Bootstrap ClassLoader
+Purpose: Loads the core Java classes (like those in java.lang, java.util, etc.) from the rt.jar or its equivalent.
+Written in: Native code (typically C or C++).
+Parent of: The Extension ClassLoader.
+
+2. Extension (Platform) ClassLoader
+Purpose: Loads classes from the ext directory (<JAVA_HOME>/lib/ext) or other locations configured by the system property java.ext.dirs.
+Parent of: The Application ClassLoader.
+
+3. Application (System) ClassLoader
+Purpose: Loads classes from the classpath (CLASSPATH environment variable or -classpath option) defined by the user.
+Default: Loads the classes of your Java application.
+Example: All classes in your src folder or JAR files that you package.
+
 5. Finally and finalize difference
 
 
@@ -745,11 +762,61 @@ It is typically used for checked exceptions, which need to be handled explicitly
 16. Session factory why we use
 17. memory leake in java 8 feature 
 
+A Memory Leak is a situation where there are objects present in the heap that are no longer used, but the garbage collector is unable to remove them from memory, and therefore, they’re unnecessarily maintained.
 
-/*String inputString = " ABHISHEK INTERVIEW TODAY";
+In Java, the memory leak is a situation when the garbage collector does not recognize the unused objects and they remain in the memory indefinitely that reduces the amount of memory allocated to the application. Because the unused objects still being referenced that may lead to OutOfMemoryError
+
+A memory leak is bad because it blocks memory resources and degrades system performance over time. If not dealt with, the application will eventually exhaust its resources, finally terminating with a fatal java.lang.OutOfMemoryError.
+
+Reasons :
+
+1. Using Unwanted Object Reference: These are the object references that are no longer needed. The garbage collector is failed to reclaim the memory because another object still refers to that unwanted object.
+
+2. Using Long-live Static Objects: Using static objects also leads to a memory leak. Because they live in the memory till the application's life span.
+
+3. Failure to Clean-up Native System Resources: Native system resources allocated by a function external to Java. It is written in C and C++. JNI APIs are used to embed native libraries in the Java code.
+
+4. Bugs in the Third-party Libraries: Bugs in AWT and Java Swing packages are another cause of memory leak.
+
+Preventing Memory Leak
+While writing code, remember the following points that prevent the memory leak in Java.
+
+Do not create unnecessary objects.
+Avoid String Concatenation.
+Use String Builder.
+Do not store a massive amount of data in the session.
+Time out the session when no longer used.
+Do not use the System.gc() method.
+Avoid the use of static objects. Because they live for the entire life of the application, by default. So, it is better to set the reference to null, explicitly.
+Always close the ResultSet, Statements, and Connection objects in the finally block.
+
+
+Detecting Memory Leak
+Detecting memory leaks is a difficult task. To simplify the task, there are many tools available that perform static analysis and detect memory leaks:
+
+JProbe
+AppPerfect
+Visual VM
+Jprofiler
+YourKit
+GCeasy
+JRockit
+
+
+Fixing Memory Leak
+There are the following solutions to the memory leak problem:
+
+Using JVM Tools: There are many tools available that optimizes the code and show the memory status.
+
+Using Heap Dump: It is a technique that is the solution to the memory leak problem. It is a snapshot of all objects that reside in the memory at a certain time. It also optimizes memory usage in a Java application. It is stored in binary format in hprof
+
+Using Eclipse Memory Leak Warnings: If you are using the Eclipse framework to develop a Java application, eclipse regularly shows the waring and errors whenever it encounters any causes of memory leak.
+
 
 13.  Arrange the input string in the alphabetical order of their occurrence . and also remove the duplicate characters.
         Sample output - ABDEHIKNORSTVWY*/
+
+        /*String inputString = " ABHISHEK INTERVIEW TODAY";
 
 public class A {
 
