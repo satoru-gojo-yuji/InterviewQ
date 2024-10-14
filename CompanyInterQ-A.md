@@ -966,6 +966,76 @@ public class A {
 
 
 
+Techbulls
+
+1. Siglton and Factory pattern
+2. Frequnecy count code 
+
+  String s ="MADAM";
+
+        HashMap<Character, Integer> r =new HashMap<>();
+
+        for(char c : s.toCharArray())
+        {
+            r.put(c , r.getOrDefault(c,0) + 1);
+        }
+
+        for(Map.Entry<Character,Integer> entery : r.entrySet())
+        {
+            System.out.print(entery.getKey()+  " -  "  +entery.getValue());
+        }
+
+3.  why we use default method in functiona interface
+4.  5 any spring boot annotation 
+5. diff. bean and compnent // service and componet 
+6.  SQl 
+
+Table Name:  EMPLOYEE 
+Columns : emp_id, emp_name , emp_dept
+Write a Query to print below Output :
+EmpCount   |   EmpDept 
+ 10                 |    Maths
+ 50                 |    Physics 
+ 20                 |    Chemistry
+
+
+Select cout(*) as empcourt,
+emp_dept
+from Employee group by emp_dept 
+
+7. Take a list of integers , remove duplicates and sort in natural order
+
+/*  List<Integer> sorted = Arrays.asList(5,6,5,6,7,8,5,8);
+
+       List<Integer> R =sorted.stream().distinct().sorted().collect(Collectors.toList());
+
+        System.out.println(R);*/
+
+8. Fequency count 
+       String s ="MADAM";
+
+        HashMap<Character, Integer> r =new HashMap<>();
+
+        for(char c : s.toCharArray())
+        {
+            r.put(c , r.getOrDefault(c,0) + 1);
+        }
+
+        for(Map.Entry<Character,Integer> entery : r.entrySet())
+        {
+            System.out.print(entery.getKey()+  " -  "  +entery.getValue());
+        }
+
+9. Can we overload and override the main method
+ 
+ we can overload the main method - 
+ but we can not override the main method 
+
+10. 
+
+
+
+
 
 
 
