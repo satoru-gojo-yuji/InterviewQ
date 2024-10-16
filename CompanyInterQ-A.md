@@ -232,9 +232,67 @@ void draw();
 
 what are the new fatuer of java 8 
 diff map and flatmap 
+
+map()
+Purpose: The map() method is used to apply a function to each element of a stream or collection and returns a new stream or collection where each element is transformed according to the function.
+Return Type: It returns a stream (or collection) where each element is a direct mapping (1-to-1 transformation) from the input to the output.
+Does Not Flatten: It doesn't flatten the structure. If the function you apply returns a collection or stream, map() will create a stream of collections or streams (nested structure).
+
+map() operation produces a single value for each value of input Stream and hence it is also called One-To-One mapping.
+
+
+flatMap()
+Purpose: The flatMap() method is used to transform and flatten a stream of elements. It’s particularly useful when each element itself is a collection or stream, and you want to combine these sub-streams or collections into a single continuous stream (flattening the structure).
+Return Type: It returns a flat stream by replacing each element with the contents of the mapped stream or collection.
+Flattens the Structure: If the mapping function returns a collection or stream, flatMap() will "flatten" these into a single stream of elements.
+
+map() does only mapping, but flatMap() performs mapping as well as flattening. Flattening means transforming data from Stream<Stream<T>> to Stream<T>. This is the main difference between map() and flatMap()
+
+List<List<String>> nestedList = Arrays.asList(
+    Arrays.asList("A", "B"),
+    Arrays.asList("C", "D"),
+    Arrays.asList("E", "F")
+);
+
+List<String> flatResult = nestedList.stream()
+                                    .flatMap(list -> list.stream())  // Flattens the lists
+                                    .collect(Collectors.toList());
+
+System.out.println(flatResult);  // Output: [A, B, C, D, E, F]
+
+Map()	flatMap()
+It processes stream of values.	
+It processes stream of stream of values.
+It does only mapping.	
+It performs mapping as well as flattening.
+It’s mapper function produces single value for each input value.	
+It’s mapper function produces multiple values for each input value.
+It is a One-To-One mapping.	
+It is a One-To-Many mapping.
+Data Transformation : From Stream<T> to Stream<R>	
+Data Transformation : From Stream<Stream<T> to Stream<R>
+Use this method when the mapper function is producing a single value for each input value.	
+Use this method when the mapper function is producing multiple values for each input value.
+
+
 anonoumus arry and inter class 
 and announomus class 
 Date API new feture for in java 8 
+
+Java 8 introduced a new and improved Date and Time API under the package java.time. The new API addresses many issues with the old java.util.Date and java.util.Calendar classes, providing a more readable, flexible, and immutable way to work with dates and times.
+
+Here are the key new features of the Java 8 Date and Time API:
+
+1. Immutable and Thread-safe Classes
+Unlike java.util.Date and java.util.Calendar, which are mutable and not thread-safe, the new java.time classes are immutable and thread-safe. This improves the reliability and safety of your code in concurrent environments.
+2. Main Classes in java.time Package
+LocalDate: Represents a date (year, month, day) without time and time zone.
+LocalTime: Represents a time (hours, minutes, seconds, nanoseconds) without a date and time zone.
+LocalDateTime: Represents both date and time, but without a time zone.
+ZonedDateTime: Represents date and time with a time zone.
+Instant: Represents a timestamp (date and time) as an instantaneous point on the timeline (seconds and nanoseconds from the Unix epoch).
+Duration: Represents the amount of time (in seconds, nanoseconds).
+Period: Represents a date-based amount of time (years, months, days).
 
 Infosys
 
