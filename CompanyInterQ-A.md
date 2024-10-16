@@ -64,6 +64,8 @@ JPA and why we JPA hibernet.
 
 Encapsulation real life example related fro your project.
 
+
+
 Interface logical questuon.
 
 inheritance logical exceuor.
@@ -184,6 +186,50 @@ public class LastZero2 {
 }
 
 diff. abstract class and interface real life 
+
+
+1) Abstract class can have abstract and non-abstract methods.
+
+Interface can have only abstract methods. Since Java 8, it can have default and static methods also.
+
+2) Abstract class doesn't support multiple inheritance.
+
+Interface supports multiple inheritance.
+
+3) Abstract class can have final, non-final, static and non-static variables.
+
+Interface has only static and final variables.
+
+4) Abstract class can provide the implementation of interface.
+
+Interface can't provide the implementation of abstract class.
+
+5) The abstract keyword is used to declare abstract class.
+
+The interface keyword is used to declare interface.
+
+6) An abstract class can extend another Java class and implement multiple Java interfaces.
+
+An interface can extend another Java interface only.
+
+7) An abstract class can be extended using keyword "extends".
+
+An interface can be implemented using keyword "implements".
+
+8) A Java abstract class can have class members like private, protected, etc.
+
+Members of a Java interface are public by default.
+
+9)Example:
+public abstract class Shape{
+public abstract void draw();
+}
+Example:
+public interface Drawable{
+void draw();
+}
+
+
 what are the new fatuer of java 8 
 diff map and flatmap 
 anonoumus arry and inter class 
@@ -192,7 +238,17 @@ Date API new feture for in java 8
 
 Infosys
 
-1. Transiant Kayword 
+1. Transiant Kayword
+
+In Java, the transient keyword is used to indicate that a field should not be serialized when an object is converted to a byte stream. Serialization is the process of converting an object into a format that can be easily stored or transmitted (for example, saving to a file or sending over a network). During serialization, all non-transient fields of the object are saved, but fields marked as transient are skipped.
+
+Why Use the transient Keyword?
+There are several reasons why you might not want certain fields to be serialized:
+
+Sensitive Data: You might have sensitive information (like passwords, security keys, etc.) in an object that you don’t want to store or transmit when serializing.
+Temporary Fields: Some fields might be temporary, such as caches or other calculated values that don’t need to be saved.
+Non-Serializable Objects: If a field holds an object that is not serializable itself, marking it as transient avoids serialization errors.
+
 2. Diamond problem
 
 Talking about Multiple inheritance is when a child class is inherits the properties from more than one parents and the methods for the parents are same (Method name and parameters are exactly the same) then child gets confused about which method will be called. This problem in Java is called the Diamond problem.
