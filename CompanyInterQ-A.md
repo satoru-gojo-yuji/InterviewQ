@@ -386,6 +386,15 @@ The @ConfigurationProperties annotation is more useful for grouping related prop
 You can use the Environment object to access properties dynamically at runtime. The Environment object is part of the Spring framework and can be autowired into any Spring component.
 
 7. How many way we can do the overload method 
+
+Choosing the Right Approach:
+REST APIs: Best for synchronous communication over HTTP.
+Messaging (RabbitMQ, Kafka): Ideal for asynchronous communication.
+Database Sharing: Suitable for applications that interact with a shared database.
+File Sharing: Good for simple, low-latency communication between applications.
+RPC (gRPC): Great for high-performance, remote method invocations.
+
+
 8. diff. comparable and comparator 
 
 Comparable Interface
@@ -449,6 +458,17 @@ Examples:
 Collections from the java.util.concurrent package like ConcurrentHashMap, CopyOnWriteArrayList, and CopyOnWriteArraySet use Fail-Safe iterators.
 Internal Working:
 Fail-Safe iterators work by iterating over a clone (snapshot) of the collection rather than the original collection, ensuring that the iteration is not impacted by structural modifications.
+
+| Fail-Fast Iterators      |	Fail-Safe Iterators |
+Fail-Fast iterators doesn’t allow modifications of a collection while iterating over it.	
+Fail-Safe iterators allow modifications of a collection while iterating over it.
+These iterators throw ConcurrentModificationException if a collection is modified while iterating over it.	
+These iterators don’t throw any exceptions if a collection is modified while iterating over it.
+They use original collection to traverse over the elements of the collection.	
+They use copy of the original collection to traverse over the elements of the collection.
+These iterators don’t require extra memory.	These iterators require extra memory to clone the collection.
+Ex : Iterators returned by ArrayList, Vector, HashMap.	
+Ex : Iterator returned by ConcurrentHashMap.
 
 10. how to make singloeton 
 11.  Singlton desing pattern 
