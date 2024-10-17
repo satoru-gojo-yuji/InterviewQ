@@ -387,6 +387,46 @@ You can use the Environment object to access properties dynamically at runtime. 
 
 7. How many way we can do the overload method 
 8. diff. comparable and comparator 
+
+Comparable Interface
+Purpose: Used to define the natural ordering of objects.
+Method to implement: compareTo(T o)
+Location of comparison logic: Inside the class whose objects are being compared.
+Usage: A class implements Comparable to define how its objects should be compared to each other.
+Single sorting sequence: When implemented, objects of the class can be sorted in only one way (natural ordering).
+
+
+public class Employee implements Comparable<Employee> {
+    private int id;
+    private String name;
+    
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    @Override
+    public int compareTo(Employee other) {
+        return this.id - other.id; // Compare based on id
+    }
+}
+
+Comparator Interface
+Purpose: Used to define external/customized sorting.
+Method to implement: compare(T o1, T o2)
+Location of comparison logic: In a separate class or as an anonymous class or lambda expression. This keeps sorting logic outside the object being sorted.
+Multiple sorting sequences: You can define multiple comparators for different sorting criteria.
+
+class Sortbyroll implements Comparator<Student> {
+
+    // Method
+    // Sorting in ascending order of roll number
+    public int compare(Student a, Student b)
+    {
+
+        return a.rollno - b.rollno;
+    }
+}
 9. fail pass in collection 
 
 Fail-Fast Iterators:
