@@ -1158,6 +1158,11 @@ A constructor cannot be called as a method. It is called when object of the clas
 A parent class constructor is not inherited in child class and this is why super() is added automatically in child class constructor if there is no explicit call to super or this.
 
 
+Constructor Overloading: Yes, it's allowed. You can have multiple constructors with different parameter lists in the same class.
+
+Constructor Overriding: No, it's not allowed. Constructors are not inherited in Java, so they cannot be overridden. However, you can call superclass constructors using super() from the subclass.
+
+
 11. Can we overriding static methods   
 
 No We can not override the static methods.
