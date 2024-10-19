@@ -571,10 +571,141 @@ Allows modifying the list during iteration (e.g., adding or replacing elements).
 Provides the index of the elements being iterated, which is not possible with a regular Iterator.
 
 Saint Goblin 
-1. What is the defult patch in servelet
+1. What is the defult patcher in servelet 
+
+The DispatcherServlet is a core component of the Spring MVC framework. It is a front controller that manages all incoming HTTP requests and routes them to appropriate handlers (such as controllers) within a Spring MVC web application.
+
+Key Responsibilities of the DispatcherServlet:
+Request Handling:
+
+The DispatcherServlet acts as the entry point for all HTTP requests in a Spring MVC application.
+It receives incoming requests and then delegates the processing of these requests to appropriate controller methods, view resolvers, and other components like interceptors, exception handlers, etc.
+Front Controller Pattern:
+
+The DispatcherServlet implements the Front Controller design pattern, meaning it centralizes request processing by handling requests and responses, routing them to the right places in the application.
+Routing Requests:
+
+It uses Handler Mappings to determine which method or controller should handle the incoming request, based on the URL, HTTP method (e.g., GET, POST), and other factors.
+For instance, if a request comes to /login, the DispatcherServlet will look for the corresponding controller method mapped to this URL and pass the request to it.
+Processing Flow:
+
+It works together with controllers, view resolvers, and model objects to generate responses (HTML, JSON, etc.).
+After receiving a request, the DispatcherServlet coordinates with:
+Controller: Handles the business logic and processing.
+Model: Holds the data that will be passed to the view.
+View Resolver: Responsible for resolving view names (like .jsp or .html files).
+Exception Resolver: Handles any exceptions during the request.
+Configurable:
+
+You can configure the DispatcherServlet with a variety of features such as interceptors, custom error handling, and more.
+It is the main servlet configured in a Spring Boot or Spring MVC application, which you can customize in application.properties or Java-based configurations.
+
 2. How to write a code for immutable object 
+
+To write an immutable String class in Java, you need to ensure that once an object of this class is created, it cannot be modified. While Java already provides an immutable String class, you can create your own custom immutable string class by following these guidelines:
+
+Key Principles of Immutability:
+
+1. Mark the class as final:  This prevents the class from being subclassed and modified.
+2. Make all fields private and final:  To ensure fields are assigned only once and cannot be modified.
+3. Do not provide any setter methods:  Mutator methods would allow modification after creation, violating immutability.
+4. If returning mutable objects, return a copy, not the original object.
+
+Code : 
+
+public final class MyString {
+
+    // Final private variable to hold the string value
+    private final String value;
+
+    // Constructor to initialize the value
+    public MyString(String value) {
+        // Make a defensive copy to ensure immutability (though String is already immutable)
+        this.value = value != null ? value : ""; // Ensures it's never null
+    }
+
+    // Getter method that returns the string value
+    public String getValue() {
+        return value;
+    }
+
+    // Method to get the length of the string
+    public int length() {
+        return value.length();
+    }
+
+    // Method to get a character at a specific index
+    public char charAt(int index) {
+        return value.charAt(index);
+    }
+
+    // Method to concatenate two MyString objects
+    public MyString concat(MyString other) {
+        if (other == null) {
+            return this;
+        }
+        return new MyString(this.value + other.value);
+    }
+
+    // Method to check equality with another MyString object
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof MyString) {
+            MyString other = (MyString) obj;
+            return this.value.equals(other.value);
+        }
+        return false;
+    }
+
+    // Override the hashCode method
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
+
+    // Override the toString method
+    @Override
+    public String toString() {
+        return value;
+    }
+}
+
+
 3. Serialization and deserialization  and what is serialization id 
 4. diff arry list and linklist 
+
+ArrayList	LinkedList
+
+1. ArrayList is an index based data structure where each element is associated with an index.
+|Elements in the LinkedList are called as nodes, where each node consists of three things – Reference to previous element, Actual value of the element and Reference to next element.|
+
+2. 	Insertions and Removals in the middle of the ArrayList are very slow. Because after each insertion and removal, elements need to be shifted.|
+Insertions and Removals from any position in the LinkedList are faster than the ArrayList. Because there is no need to shift the elements after every insertion and removal. Only references of previous and next elements are to be changed.|
+
+3. Insertion and removal operations in ArrayList are of order O(n).	
+|Insertion and removal in LinkedList are of order O(1).
+
+4. Retrieval(Searching or getting an element)	Retrieval of elements in the ArrayList is faster than the LinkedList . Because all elements in ArrayList are index based.	
+Retrieval of elements in LinkedList is very slow compared to ArrayList. Because to retrieve an element, you have to traverse from beginning or end (Whichever is closer to that element) to reach that element.
+
+5. Retrieval operation in ArrayList is of order of O(1).	
+Retrieval operation in LinkedList is of order of O(n).
+
+6. Random Access	ArrayList is of type Random Access. i.e elements can be accessed randomly.	
+LinkedList is not of type Random Access. i.e elements can not be accessed randomly. you have to traverse from beginning or end to reach a particular element.
+
+7. ArrayList can not be used as a Stack or Queue.
+LinkedList, once defined, can be used as ArrayList, Stack, Queue, Singly Linked List and Doubly Linked List.
+
+8. ArrayList requires less memory compared to LinkedList. Because ArrayList holds only actual data and it’s index.	
+LinkedList requires more memory compared to ArrayList. Because, each node in LinkedList holds data and reference to next and previous elements.
+
+9. When To Use	If your application does more retrieval than the insertions and deletions, then use ArrayList.	
+If your application does more insertions and deletions than the retrieval, then use LinkedList.
+
 5. what is the default end point of URL
 6. Fouction on project 
 7. java 8 new feature and date api 
