@@ -945,6 +945,9 @@ Mumbai Company
 4. Interface and abstract class 
 5. JPA and orm tool
 6. System.out.println 
+
+System is a utility class, out is a PrintStream object, and println() is a method that prints various types of data followed by a newline.
+
 7. Springspacuter
 
 
