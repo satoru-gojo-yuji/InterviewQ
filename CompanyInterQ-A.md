@@ -1344,7 +1344,21 @@ from Employee group by emp_dept
  we can overload the main method - 
  but we can not override the main method 
 
-10. 
+
+Congnizent 
+1. inside singelton if dependency is added inside this bean , we are invoking several calls to outer bean , how many instances of outer and inner bean will be created
+2. What is eventlistner in hibernet.
+3. How to sort the list based on  empty age and name.
+4. Different type to bean scope 
+5. What is default bean scope
+6. How to configure hibernet in spring boot 
+7. What input is needed to create the session factory.
+8. HIBERNATE generates some query how bean log it.
+9. Copareble and comparato different.
+10. CQRS design pattern. 
+11. Saga design pattern.
+12. Different between restfull and rest APIs
+
 
 
 
