@@ -7,6 +7,23 @@ what are the languagest did you use in your project
 RBI  
 How to add the new entity in jpa and Java 
  String me vowels kese print karaye 
+
+ public class VowelPrinter {
+    public static void main(String[] args) {
+        String input = "Hello World"; // यहाँ अपनी स्ट्रिंग डालें
+        printVowels(input);
+    }
+
+    public static void printVowels(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char ch = Character.toLowerCase(str.charAt(i)); // छोटे अक्षरों में कन्वर्ट करना ताकि कैपिटल लेटर्स भी कवर हो जाएं
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                System.out.print(ch + " ");
+            }
+        }
+    }
+}
+
   JAP annotation  
   Angular host  
   How to add new functionality in your current project  
