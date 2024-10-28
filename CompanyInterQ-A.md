@@ -87,7 +87,14 @@ Interface logical questuon.
 
 inheritance logical exceuor.
 
-Spring boot annotation.
+Springbootannotation.
+
+@SpringBootApplication
+
+This is the main annotation that marks a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It is a combination of three annotations:
+@Configuration: Indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+@EnableAutoConfiguration: Enables Spring Boot's auto-configuration feature.
+@ComponentScan: Enables component scanning, allowing Spring to find and register beans automatically.
 
 MySQL logical qeustuon.
 
@@ -95,7 +102,43 @@ HTML Css JS Anguler to craret the login pager how to versify the user enter data
 
 Vector and arry list logicla questuon.
 
+1. Synchronization
+Vector: It is synchronized, meaning it is thread-safe and can be used in a multi-threaded environment without external synchronization. Each operation on a Vector is thread-safe, which can lead to performance overhead due to the locking mechanism.
+ArrayList: It is not synchronized, making it not thread-safe. If multiple threads access an ArrayList concurrently, and at least one of the threads modifies it, it must be externally synchronized.
+
+2. Performance
+Vector: Because of its synchronized nature, it generally has lower performance compared to ArrayList when accessed from multiple threads.
+ArrayList: It is faster for single-threaded operations because it does not have the overhead of synchronization.
+3. Growth Rate
+Vector: When a Vector runs out of space, it doubles its size. This can lead to less frequent resizing but may waste memory.
+ArrayList: When an ArrayList runs out of space, it increases its size by 50% (1.5 times the old capacity). This often results in better memory utilization.
+4. Legacy vs. Modern Collection
+Vector: It is part of the original Java 1.0 and is considered a legacy class. It can be replaced by more modern collection classes like ArrayList.
+ArrayList: Introduced in Java 2 (Java 1.2), it is part of the Java Collections Framework and is generally preferred for new implementations.
+5. Iterators
+Vector: It provides a legacy enumeration method and also has a method to return an Iterator.
+ArrayList: It provides a more modern iterator which is fail-fast, meaning it throws a ConcurrentModificationException if the list is structurally modified while iterating.
+
 treemap and hashmap diff.
+
+1. Ordering
+TreeMap: It maintains a sorted order of its keys. By default, it sorts the keys according to their natural ordering (e.g., numerical order for numbers, alphabetical order for strings). You can also provide a custom comparator to control the sorting order.
+HashMap: It does not maintain any order of its keys. The order of the keys is based on the hash code of the keys and can change when new key-value pairs are added.
+
+2. Performance
+TreeMap: The operations such as insertion, deletion, and retrieval take O(log n) time due to the underlying Red-Black tree structure used to maintain order.
+HashMap: These operations generally take O(1) time on average due to its hash table implementation. However, in cases of hash collisions, performance can degrade to O(n) in the worst case.
+
+3. Null Keys and Values
+TreeMap: It does not allow null keys. You can have null values, but not null keys. Attempting to add a null key will throw a NullPointerException.
+HashMap: It allows one null key and multiple null values. This means you can store a key with a null value without issues.
+
+4. Thread Safety
+Both TreeMap and HashMap are not synchronized, meaning they are not thread-safe. If you need to use them in a multi-threaded environment, you should either wrap them using Collections.synchronizedMap() or use ConcurrentHashMap.
+
+5. Use Cases
+TreeMap: Use when you need a sorted map (e.g., if you need to retrieve keys in a sorted order or perform range queries).
+HashMap: Use when you need fast access to elements and do not require the keys to be sorted.
 
 finaly why we use ralred project / data base close
 
@@ -202,7 +245,7 @@ public class LastZero2 {
     }
 }
 
-diff. abstract class and interface real life 
+12. diff. abstract class and interface real life 
 
 
 1) Abstract class can have abstract and non-abstract methods.
