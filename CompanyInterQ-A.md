@@ -281,6 +281,7 @@ An interface can be implemented using keyword "implements".
 Members of a Java interface are public by default.
 
 9)Example:
+
 public abstract class Shape{
 public abstract void draw();
 }
@@ -294,7 +295,7 @@ what are the new fatuer of java 8
 diff map and flatmap 
 
 map()
-Purpose: The map() method is used to apply a function to each element of a stream or collection and returns a new stream or collection where each element is transformed according to the function.
+Purpose: The map() method is used to apply a function to each element of a stream or collection and returns a new stream or collection where each element is transformed according to the function. 
 Return Type: It returns a stream (or collection) where each element is a direct mapping (1-to-1 transformation) from the input to the output.
 Does Not Flatten: It doesn't flatten the structure. If the function you apply returns a collection or stream, map() will create a stream of collections or streams (nested structure).
 
@@ -360,10 +361,10 @@ Infosys
 
 In Java, the transient keyword is used to indicate that a field should not be serialized when an object is converted to a byte stream. Serialization is the process of converting an object into a format that can be easily stored or transmitted (for example, saving to a file or sending over a network). During serialization, all non-transient fields of the object are saved, but fields marked as transient are skipped.
 
-Why Use the transient Keyword?
-There are several reasons why you might not want certain fields to be serialized:
+Why Use the transient Keyword? 
+There are several reasons why you might not want certain fields to be serialized: 
 
-Sensitive Data: You might have sensitive information (like passwords, security keys, etc.) in an object that you don’t want to store or transmit when serializing.
+Sensitive Data: You might have sensitive information (like passwords, security keys, etc.) in an object that you don’t want to store or transmit when serializing. 
 Temporary Fields: Some fields might be temporary, such as caches or other calculated values that don’t need to be saved.
 Non-Serializable Objects: If a field holds an object that is not serializable itself, marking it as transient avoids serialization errors.
 
@@ -433,8 +434,19 @@ class test1 {
 
 
 3. String immutable 
+
+In summary, String immutability in Java provides benefits in terms of security, thread safety, performance, and code simplicity. By preventing changes to string objects after they are created, Java helps ensure consistent behavior and reduces the risk of bugs and security vulnerabilities in applications.
+
 4. Pass failed in collection
 5. How to pass data from one application to another application
+
+Choosing the Right Approach:
+REST APIs: Best for synchronous communication over HTTP.
+Messaging (RabbitMQ, Kafka): Ideal for asynchronous communication.
+Database Sharing: Suitable for applications that interact with a shared database.
+File Sharing: Good for simple, low-latency communication between applications.
+RPC (gRPC): Great for high-performance, remote method invocations.
+
 6. How to read the application.property file
 
 In a Spring Boot application, you can read properties from the application.properties (or application.yml) file using various methods, including using the @Value annotation, @ConfigurationProperties annotation, or by directly injecting the Environment object. Here are the approaches:
@@ -446,14 +458,6 @@ The @ConfigurationProperties annotation is more useful for grouping related prop
 You can use the Environment object to access properties dynamically at runtime. The Environment object is part of the Spring framework and can be autowired into any Spring component.
 
 7. How many way we can do the overload method 
-
-Choosing the Right Approach:
-REST APIs: Best for synchronous communication over HTTP.
-Messaging (RabbitMQ, Kafka): Ideal for asynchronous communication.
-Database Sharing: Suitable for applications that interact with a shared database.
-File Sharing: Good for simple, low-latency communication between applications.
-RPC (gRPC): Great for high-performance, remote method invocations.
-
 
 8. diff. comparable and comparator 
 
