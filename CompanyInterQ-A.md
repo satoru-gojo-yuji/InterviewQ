@@ -1425,7 +1425,25 @@ Congnizent
 
 
 
+Condnizent Clien roeund 
+1. How to convert get name is active user and to convert in uppercase 
+t.stream().map(t.Uppercase())map(student:: getname()).filter(e -> e.isActive()).collect(Collectors.toList());
 
+2. Frequncy count 
+
+S = "abhishek" ;
+Map<Charecter, Integer> t = new HashMap<>();
+s.chars().maptoObj( e -> (char) e).collect(Collectors.groupingBy(Function.identity(), Collectors.countign());
+
+3. How to print the values like 
+input s = "abhishek Pal"
+
+out put = "AAHHISEKLB" ;
+
+4. Kafka
+5. how to communicate with thired party api and interservice communication 
+6. API gate way 
+7. Why we use function.identity in java 8 
 
 
 
