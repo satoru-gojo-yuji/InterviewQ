@@ -1414,6 +1414,80 @@ Congnizent
 2. What is eventlistner in hibernet.
 3. How to sort the list based on  empty age and name.
 4. Different type to bean scope 
+
+1. Singleton (Default Scope)
+
+Only one instance of the bean is created per Spring container.
+This instance is shared across the entire application, meaning any request for the bean will return the same instance.
+It's the default scope when you define a bean in Spring without specifying a scope.
+java
+Copy code
+@Bean
+@Scope("singleton")
+public MyBean myBean() {
+    return new MyBean();
+}
+2. Prototype
+
+A new instance of the bean is created each time it's requested from the Spring container.
+Useful when each user or component needs its own unique instance.
+The container does not manage the complete lifecycle of a prototype bean, only its instantiation.
+java
+Copy code
+@Bean
+@Scope("prototype")
+public MyBean myBean() {
+    return new MyBean();
+}
+3. Request (Web Application Scope)
+
+Creates a new bean instance for each HTTP request in a web application.
+The bean is valid only within the scope of a single HTTP request and is destroyed at the end of the request.
+java
+Copy code
+@Bean
+@Scope("request")
+public MyBean myBean() {
+    return new MyBean();
+}
+4. Session (Web Application Scope)
+
+Creates a new bean instance for each HTTP session in a web application.
+The bean is stored in the session scope and lasts as long as the HTTP session.
+java
+Copy code
+@Bean
+@Scope("session")
+public MyBean myBean() {
+    return new MyBean();
+}
+5. Application (Web Application Scope)
+
+A single instance of the bean is created for the entire lifecycle of the ServletContext.
+Similar to singleton scope but specific to web applications, where the bean’s lifecycle matches the application’s lifecycle.
+java
+Copy code
+@Bean
+@Scope("application")
+public MyBean myBean() {
+    return new MyBean();
+}
+6. WebSocket (WebSocket Scope)
+
+This scope is specific to WebSocket communication.
+A new instance is created for each WebSocket session.
+java
+Copy code
+@Bean
+@Scope("websocket")
+public MyBean myBean() {
+    return new MyBean();
+}
+Note: The web-related scopes (request, session, application, websocket) are only available in a web-aware Spring ApplicationContext, such as a Spring MVC application.
+
+Each scope has its own specific use cases, and choosing the right one depends on how you want the bean to behave in terms of its lifecycle and accessibility across different components in the application.
+
+
 5. What is default bean scope
 6. How to configure hibernet in spring boot 
 7. What input is needed to create the session factory.
@@ -1444,6 +1518,73 @@ out put = "AAHHISEKLB" ;
 5. how to communicate with thired party api and interservice communication 
 6. API gate way 
 7. Why we use function.identity in java 8 
+8. Saga pattern 
+
+The Saga pattern is a widely used approach for handling distributed transactions in a microservices architecture. Since each microservice is designed to operate independently and manage its own data, traditional ACID transactions are not feasible across services. The Saga pattern breaks a large, distributed transaction into a sequence of smaller, independent transactions managed within each service.
+
+Key Concepts of the Saga Pattern
+Distributed Transaction: A single transaction spread across multiple services.
+Saga: A sequence of transactions (operations) where each operation is a local transaction within a service.
+Compensation: If a transaction in the sequence fails, the Saga pattern ensures any previous changes are undone to maintain consistency.
+
+
+Two Main Saga Implementation Approaches
+
+Choreography: Each service involved in the saga is responsible for knowing when to start the next step in the transaction process or when to trigger a compensating action.
+
+Orchestration: A central controller (or orchestrator) manages the entire saga sequence, deciding the order of steps and handling rollbacks if necessary.
+
+1. Choreography-Based Saga
+In the choreography approach, each service publishes and listens to events. When one service completes a step in the saga, it publishes an event that triggers the next step in another service.
+
+How It Works
+Event-Driven: Services communicate by publishing and subscribing to events.
+Decentralized: There is no central orchestrator; each service knows what to do upon receiving specific events.
+Compensation: If a failure occurs, services emit compensating events to undo the previous actions.
+Pros and Cons
+Pros:
+
+Loose Coupling: Services are loosely coupled because they only listen to and emit events.
+Scalable: It scales well since there is no central dependency.
+Cons:
+
+Complexity: Can become challenging to manage as the number of services and events grows.
+Difficult to Debug: Tracing the saga flow and debugging issues across multiple services can be difficult.
+Example Workflow (Choreography)
+Let’s say you have an order placement flow:
+
+Order Service: Places the order and publishes an OrderCreated event.
+Inventory Service: Listens to the OrderCreated event, reserves the items, and publishes an InventoryReserved event.
+Payment Service: Listens to the InventoryReserved event, processes payment, and publishes a PaymentCompleted event.
+Shipping Service: Listens to the PaymentCompleted event and ships the order.
+If any service fails, previous services will need to publish compensating events to undo previous steps.
+
+
+2. Orchestration-Based Saga
+In the orchestration approach, a central orchestrator (Saga Orchestrator) manages and coordinates the sequence of steps in the saga.
+
+How It Works
+Central Controller: The orchestrator service decides the order of execution for each step in the saga.
+Direct Communication: The orchestrator calls each service in a defined sequence.
+Compensation: The orchestrator initiates compensating transactions in the event of a failure.
+Pros and Cons
+Pros:
+
+Centralized Logic: The workflow logic is centralized, making it easier to manage and change.
+Clear Execution Flow: Easier to trace, debug, and maintain due to centralized control.
+Cons:
+
+Single Point of Failure: The orchestrator can become a single point of failure.
+Higher Coupling: Services are more tightly coupled to the orchestrator.
+Example Workflow (Orchestration)
+Using the same order placement flow:
+
+Orchestrator Service: Starts the saga by calling the Order Service to create the order.
+Order Service: Creates the order and returns success to the orchestrator.
+Orchestrator Service: Calls the Inventory Service to reserve items.
+Inventory Service: Reserves items and returns success.
+Orchestrator Service: Calls the Payment Service to process payment.
+If any step fails, the orchestrator triggers compensating transactions, like canceling the order or releasing reserved inventory.
 
 
 
