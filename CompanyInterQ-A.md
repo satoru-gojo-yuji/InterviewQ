@@ -739,6 +739,14 @@ public final class MyString {
 
 
 3. Serialization and deserialization  and what is serialization id 
+Serialization	Deserialization
+Converts an object into a byte stream or a storable/transferable format.
+Converts a byte stream or data format back into an object.
+Usually for storage or network transmission.
+Typically used when retrieving or using the object.
+Example output: File, JSON, XML, or byte stream.
+Example output: Reconstructed object or data.
+
 4. diff arry list and linklist 
 
 ArrayList	LinkedList
@@ -795,6 +803,15 @@ Tech Mahindra
 7. functional interface 
 8. Exception handling
 9. if error is occure multiple times how to handle it. 
+
+Global Error Handling with @ControllerAdvice
+Global Exception Handling: Use @ControllerAdvice to catch errors globally and handle them in a uniform manner.
+Retry Mechanism: Use Spring Retry for retrying failed operations.
+Circuit Breaker: Use Resilience4j or Hystrix to stop calling a failing service after repeated failures.
+Logging and Monitoring: Log repeated errors and set up monitoring to detect and fix recurring issues.
+Rate Limiting: Prevent too many error messages from overwhelming the system.
+Graceful Degradation: Handle failures in a way that maintains the user experience, such as showing fallback content.
+
 10. throw and throws 
 11. Globle exception
 12. Exception and error 
@@ -819,6 +836,7 @@ Questuon :
 11. Method overriding and method overloading Inheritance in java
 12. Can we overriding the static method
 
+Question :
 Why string is immutable 
 Internet working of hashmap 
 What is hashing tecnicke 
@@ -827,26 +845,40 @@ What is lambda express
 Write the code in lambda expression 
 What is functional interface 
 Why we use @springbootapplication annotation 
-Why we use spring boot 
-How to change the port number in spring boot
-Method overriding and method overloading 
-Inheritance in java
-Can we overriding the static method
-Hibernate important interface user hibernate 
-Direct in hibernet easy load and get load 
-Ioc container type 
-Beans factory and applications contexest 
-Session factory 
-Hibernet cache 
-Lazy and eager loading 
-Get and load method hibernet 
-Architectural of hibernate 
-State of hibernet 
-Loging factory
-Swagger api documentation 
+
+What @SpringBootApplication Includes:
+It is a combination of the following three annotations:
+
+@EnableAutoConfiguration:
+Tells Spring Boot to automatically configure the application based on the libraries on the classpath. For example, if Spring Boot detects a web application, it will automatically configure an embedded web server like Tomcat or Jetty.
+@ComponentScan:
+Tells Spring to scan the current package and its sub-packages for components, configurations, and services. It allows Spring to automatically detect classes annotated with @Component, @Service, @Repository, and @Controller (among others).
+@Configuration:
+Marks the class as a source of bean definitions for the application context. Essentially, it indicates that the class can contain @Bean definitions.
+
+1. Why we use spring boot 
+2. How to change the port number in spring boot
+
+server.port=8081
+
+3. Method overriding and method overloading 
+4. Inheritance in java
+5. Can we overriding the static method
+6. Hibernate important interface user hibernate 
+7. Direct in hibernet easy load and get load 
+8. Ioc container type 
+9. Beans factory and applications contexest 
+10. Session factory 
+11. Hibernet cache 
+12. Lazy and eager loading 
+13. Get and load method hibernet 
+15. Architectural of hibernate 
+16. State of hibernet 
+17. Loging factory
+18. Swagger api documentation 
 Provide karte hai front end walo ko 
 Put and patch
-Concutsnt hashmap and hash table
+19. Concutsnt hashmap and hash table
 
 
 
@@ -1236,12 +1268,36 @@ No We can not override the static methods.
 
 NTT DATA
 1. How to handle the multiple requests in spring boot.
+
+Summary of Techniques for Handling Multiple Requests in Spring Boot:
+Default (Synchronous): Each request is handled one at a time by a single thread.
+Asynchronous Processing: Use @Async and CompletableFuture for non-blocking processing, enabling concurrent request handling.
+ExecutorService: Use a custom ExecutorService for managing multiple threads manually.
+Request Queuing: Queue tasks using a BlockingQueue to manage high numbers of requests.
+Rate Limiting: Implement rate limiting using libraries like Bucket4j to control the number of requests.
+WebSockets: Use WebSockets for real-time applications that require handling multiple simultaneous connections.
+
+
 2. Controller and restcontroller
 
 3. Globale exceptions.
+
+Using @ControllerAdvice for Global Exception Handling
+@ControllerAdvice is a specialized @Component that allows you to handle exceptions globally in Spring Boot. It can be applied to methods within the class that handle exceptions for the entire application, or specific controllers.
+
+Steps to implement:
+Create a class with the @ControllerAdvice annotation.
+Define exception handler methods inside the class using @ExceptionHandler.
+Customize the response, such as the status code, message, or any other details, for each type of exception.
+
+@ControllerAdvice: This annotation defines a global exception handler class that will handle exceptions thrown in any controller.
+@ExceptionHandler: This annotation specifies the method to handle specific types of exceptions. In this example, we handle ResourceNotFoundException and RuntimeException.
+ResponseEntity: This is used to customize the response sent back to the client (including HTTP status code and body content).
+@ResponseStatus: Specifies the HTTP status code to return for the exception.
+
 4. Microservices how to communicate with 2 microservices and.
 5. Saga design pattern
-5.  to remove memory leaked.
+5. how to remove memory leaked.
 6. @Qualifer and primary.
 
 Use @Primary to designate the default bean when multiple beans of the same type are present.
@@ -1260,6 +1316,10 @@ The throws keyword is used in a method signature to declare that the method migh
 It is typically used for checked exceptions, which need to be handled explicitly.
 
 8. How to create our own exception 
+
+Throw your custom exception where needed (e.g., in service or controller methods).
+Handle the exception globally or locally using @ExceptionHandler or @ControllerAdvice.
+
 9. How to push your code in perticular feature repo 
 10. And how to build that. 
 11. Arrylist and linkedlist.
@@ -1267,6 +1327,18 @@ It is typically used for checked exceptions, which need to be handled explicitly
 13. Intermediate and terminal operations 
 14. Authentication and Automations
 15. How to secure your rest API
+
+Using Spring Boot, you can integrate Bucket4j or Resilience4j to implement rate-limiting. 
+
+Summary of Best Practices:
+Use Authentication (JWT or OAuth 2.0) to secure API endpoints.
+Always use HTTPS to encrypt communication between clients and APIs.
+Rate Limit API Requests to prevent abuse and overloading.
+Validate and Sanitize Input to avoid SQL injection, XSS, and other vulnerabilities.
+Enable CSRF Protection where necessary.
+Implement Role-based Access Control (RBAC) for fine-grained access management.
+Centralize Security with an API Gateway for better manageability.
+
 16. Session factory why we use
 17. memory leake in java 8 feature 
 
@@ -1413,6 +1485,52 @@ Congnizent
 1. inside singelton if dependency is added inside this bean , we are invoking several calls to outer bean , how many instances of outer and inner bean will be created
 2. What is eventlistner in hibernet.
 3. How to sort the list based on  empty age and name.
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class Employee {
+    private String name;
+    private int age; // Use primitive int since null handling is not needed
+
+    public Employee(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{name='" + name + "', age=" + age + "}";
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("Alice", 30));
+        employees.add(new Employee("Bob", 28));
+        employees.add(new Employee("Charlie", 25));
+        employees.add(new Employee("Diana", 30));
+        employees.add(new Employee("Eve", 28));
+
+        // Sort by age, then by name
+        employees.sort(
+            Comparator.comparingInt(Employee::getAge) // Sort by age
+                      .thenComparing(Employee::getName) // Then by name
+        );
+
+        // Print the sorted list
+        employees.forEach(System.out::println);
+    }
+}
+
 4. Different type to bean scope 
 
 1. Singleton (Default Scope)
@@ -1489,8 +1607,55 @@ Each scope has its own specific use cases, and choosing the right one depends on
 
 
 5. What is default bean scope
+
+In Spring, the default bean scope is singleton. This means that by default, Spring creates only one instance of a bean per Spring IoC container, and this single instance is shared across the entire application context. When a bean is defined with the singleton scope, any request for that bean will return the same instance.
+
 6. How to configure hibernet in spring boot 
 7. What input is needed to create the session factory.
+
+hibernate.dialect: This tells Hibernate which SQL dialect to use for the database (e.g., org.hibernate.dialect.MySQLDialect).
+hibernate.hbm2ddl.auto: This setting controls the schema management strategy (update, create, create-drop, validate, or none).
+hibernate.show_sql: Whether to show SQL queries in the console (true or false).
+hibernate.format_sql: Whether to format SQL output (true or false)
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateUtil {
+    private static SessionFactory sessionFactory;
+
+    static {
+        try {
+            Configuration configuration = new Configuration();
+
+            // Database connection properties
+            configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/mydb");
+            configuration.setProperty("hibernate.connection.username", "root");
+            configuration.setProperty("hibernate.connection.password", "password");
+            configuration.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
+
+            // Hibernate properties
+            configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            configuration.setProperty("hibernate.hbm2ddl.auto", "update");
+            configuration.setProperty("hibernate.show_sql", "true");
+            configuration.setProperty("hibernate.format_sql", "true");
+
+            // Adding annotated entity classes
+            configuration.addAnnotatedClass(Customer.class);
+
+            // Build the SessionFactory
+            sessionFactory = configuration.buildSessionFactory();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ExceptionInInitializerError("SessionFactory creation failed");
+        }
+    }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+}
+
 8. HIBERNATE generates some query how bean log it.
 9. Copareble and comparato different.
 10. CQRS design pattern. 
@@ -1501,7 +1666,14 @@ Each scope has its own specific use cases, and choosing the right one depends on
 
 Condnizent Clien roeund 
 1. How to convert get name is active user and to convert in uppercase 
-t.stream().map(t.Uppercase())map(student:: getname()).filter(e -> e.isActive()).collect(Collectors.toList());
+ Optional<String> activeUserNameUpper = users.stream()
+                .filter(User::isActive) // Filter active users
+                .map(User::getName)     // Get the name of active users
+                .findFirst()            // Take the first active user
+                .map(String::toUpperCase); // Convert the name to uppercase
+
+        // Print the uppercase name of the active user if found
+        activeUserNameUpper.ifPresent(name -> System.out.println("Active user name in uppercase: " + name));
 
 2. Frequncy count 
 
@@ -1514,9 +1686,12 @@ input s = "abhishek Pal"
 
 out put = "AAHHISEKLB" ;
 
-4. Kafka
+4. Kafka 
 5. how to communicate with thired party api and interservice communication 
 6. API gate way 
+
+An API Gateway is an essential component in a microservices architecture that acts as a single entry point for all client requests to interact with multiple services. Its primary role is to manage, route, and secure client requests, simplifying how clients access services within a distributed system.
+
 7. Why we use function.identity in java 8 
 8. Saga pattern 
 
