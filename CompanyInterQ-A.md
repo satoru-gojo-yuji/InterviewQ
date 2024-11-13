@@ -1782,6 +1782,26 @@ Produst
 4. Saga pattern 
 5. @component 
 6. Palindrome code
+
+public class PalindromeNumberChecker {
+    public static boolean isPalindrome(int num) {
+        int original = num;
+        int reversed = 0;
+
+        while (num > 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        return original == reversed;
+    }
+
+    public static void main(String[] args) {
+        int number = 121;
+        System.out.println("Is " + number + " a palindrome? " + isPalindrome(number));
+    }
+}
 7. Find first duplicate values
 8. Checked exception and unchecked exception example 
 
