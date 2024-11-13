@@ -1762,6 +1762,37 @@ Orchestrator Service: Calls the Payment Service to process payment.
 If any step fails, the orchestrator triggers compensating transactions, like canceling the order or releasing reserved inventory.
 
 
+Mphasisi
+
+1. What is covariant return type in java 
+2. Different between singleton in java class and singleton design pattern 
+3. How to convert json to DTO and other formats 
+4. Hwo to create the restapi without using restcontroller annotations 
+5. Hwo to write the code filter epm name lastname and first name using core java 
+6. What stream is using internal to iterat 
+7. Internal working of @enableautoconfiguration
+8. Different between map and maptoint in java 8
+
+
+Produst 
+
+1. Different between fail fast and fail 
+2. Comparable and comparator 
+3. Arrylist and lindlist 
+4. Saga pattern 
+5. @component 
+6. Palindrome code
+7. Find first duplicate values
+8. Checked exception and unchecked exception example 
+9. @component @service @repositery 
+10. @traditional
+11. Try chatch can run code without  catch 
+12. Fina finally finalized the method difference
+13. How many ways we can handle exception
+
+
+
+
 
 
 
