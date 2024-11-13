@@ -1819,6 +1819,13 @@ ClassNotFoundException, SQLException, IOException
 11. Try chatch can run code without  catch 
 12. Fina finally finalized the method difference
 13. How many ways we can handle exception
+14.  Sevice Registery and Service Discovery 
+
+Registry Setup: Assume a User Service and Order Service register their instances with a service registry like Eureka.
+
+Discovery: If Order Service needs to fetch user details, it uses service discovery to find the location of User Service by querying Eureka.
+
+In short, the service registry holds the information about services, while service discovery is the process of retrieving and using that information.
 
 
 
