@@ -1784,6 +1784,16 @@ Produst
 6. Palindrome code
 7. Find first duplicate values
 8. Checked exception and unchecked exception example 
+
+The exceptions which occur at run time are called as run time exceptions. These exceptions are unknown to compiler. All sub classes of java.lang.RunTimeException and java.lang.Error are run time exceptions. 
+These exceptions are unchecked type of exceptions. 
+For example, NumberFormatException, NullPointerException, ClassCastException, ArrayIndexOutOfBoundException, StackOverflowError etc.
+
+
+Chekced 
+ClassNotFoundException, SQLException, IOException
+
+
 9. @component @service @repositery 
 10. @traditional
 11. Try chatch can run code without  catch 
