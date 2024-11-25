@@ -1861,6 +1861,15 @@ Overriding: Setter injection overrides the constructor injection. If we use both
 Changes: We can easily change the value by setter injection. It doesn't create a new bean instance always like constructor. So setter injection is flexible than constructor injection.
 
 
+12. How to Create a Controller without the `@Controller` Annotation?
+
+While `@Controller` is the standard way to define a controller in Spring MVC, you can also create a controller without it by using `@Component` or implementing specific interfaces like `HandlerMapping` and `HandlerAdapter` manually.
+
+### Option 1: Using `@Component` and `@RequestMapping`
+
+You can use `@Component` instead of `@Controller` because `@Controller` is a specialized version of `@Component`. Spring will still recognize the class as a Spring bean, and if it has request mappings, Spring MVC will treat it like a controller.
+
+
 
 
 
