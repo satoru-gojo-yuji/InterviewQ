@@ -1869,6 +1869,86 @@ While `@Controller` is the standard way to define a controller in Spring MVC, yo
 
 You can use `@Component` instead of `@Controller` because `@Controller` is a specialized version of `@Component`. Spring will still recognize the class as a Spring bean, and if it has request mappings, Spring MVC will treat it like a controller.
 
+@Component
+public class MyComponentController {
+
+    @RequestMapping("/greet")
+    public String greet(Model model) {
+        model.addAttribute("message", "Hello from a Component!");
+        return "greeting";
+    }
+}
+
+13. how to creat the restfull api  without usign @restcontroller
+
+You can create a RESTful API without using @RestController by using the @Controller annotation and explicitly marking each method with @ResponseBody. The @ResponseBody annotation tells Spring that the return value of the method should be serialized into the HTTP response body, typically as JSON or XML.
+
+
+Step-by-Step Implementation
+1. Define a @Controller
+Mark your class with @Controller to indicate that it’s a Spring-managed controller.
+
+2. Use @ResponseBody on Methods
+Annotate individual methods with @ResponseBody to ensure the response is serialized directly to the HTTP response body.
+
+3. Configure Message Converters
+Ensure that Spring's HTTP Message Converters (e.g., Jackson for JSON) are correctly configured. This is typically done automatically if you have spring-boot-starter-web in your dependencies.
+
+
+@Controller
+@RequestMapping("/api/customers")
+public class CustomerController {
+
+    // Simulating a database with a list
+    private List<Customer> customers = new ArrayList<>(List.of(
+        new Customer(1, "John Doe", "john@example.com"),
+        new Customer(2, "Jane Smith", "jane@example.com")
+    ));
+
+    // GET API to fetch all customers
+    @GetMapping
+    @ResponseBody
+    public List<Customer> getAllCustomers() {
+        return customers;
+    }
+
+    // GET API to fetch a specific customer by ID
+    @GetMapping("/{id}")
+    @ResponseBody
+    public Customer getCustomerById(@PathVariable int id) {
+        return customers.stream()
+                        .filter(c -> c.getId() == id)
+                        .findFirst()
+                        .orElseThrow(() -> new RuntimeException("Customer not found"));
+    }
+
+    // POST API to add a new customer
+    @PostMapping
+    @ResponseBody
+    public Customer addCustomer(@RequestBody Customer customer) {
+        customers.add(customer);
+        return customer;
+    }
+}
+
+13. Lazy Loading in Hibernate
+
+is a mechanism that delays the initialization of an object or a collection of objects until they are actually needed. This approach improves performance by avoiding unnecessary database queries and reducing memory usage when working with large datasets.
+
+@ManyToOne(fetch = FetchType.LAZY)
+private Department department;
+
+
+14. Why We Use volatile
+Visibility:
+
+Normally, each thread may keep its own copy of a variable in its CPU cache, leading to inconsistent views of the variable's value across threads.
+Declaring a variable as volatile ensures that every thread reads the variable directly from the main memory, reflecting the latest value.
+
+
+
+
+
 
 
 
