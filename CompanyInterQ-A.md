@@ -194,6 +194,51 @@ Input: String [] strArr={"apple","aappllee","","aabbcde","kettle"};
 Output: Character [] chArr={'a','0','\u0000','c','k'};
 
 
+import java.util.*;
+
+public class NonRepeatingCharacter {
+    public static void main(String[] args) {
+        String[] strArr = {"apple", "aappllee", "", "aabbcde", "kettle"};
+        Character[] chArr = findFirstNonRepeatingCharacters(strArr);
+
+        System.out.println(Arrays.toString(chArr));
+    }
+
+    public static Character[] findFirstNonRepeatingCharacters(String[] strArr) {
+        Character[] result = new Character[strArr.length];
+
+        for (int i = 0; i < strArr.length; i++) {
+            String str = strArr[i];
+            if (str.isEmpty()) {
+                result[i] = '\u0000'; // Empty string case
+                continue;
+            }
+
+            Map<Character, Integer> frequencyMap = new LinkedHashMap<>();
+            for (char ch : str.toCharArray()) {
+                frequencyMap.put(ch, frequencyMap.getOrDefault(ch, 0) + 1);
+            }
+
+            boolean found = false;
+            for (char ch : str.toCharArray()) {
+                if (frequencyMap.get(ch) == 1) {
+                    result[i] = ch; // First non-repeating character
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                result[i] = '0'; // No non-repeating character
+            }
+        }
+
+        return result;
+    }
+}
+
+
+
 
 
 Given an array of random numbers, push all the zeroes of a given array to the end of the array. For example, if the given array is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same.
