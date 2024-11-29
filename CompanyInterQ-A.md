@@ -1992,6 +1992,44 @@ Declaring a variable as volatile ensures that every thread reads the variable di
 
 
 
+15. list all the stream method name and which funtinal interfsace they are using 
+
+Functional Interfaces Overview
+Predicate<T>
+
+Used for filtering and matching.
+Methods: filter, allMatch, anyMatch, noneMatch.
+Function<T, R>
+
+Used for mapping or transforming elements.
+Methods: map, flatMap.
+Consumer<T>
+
+Performs an action on each element.
+Methods: forEach, peek.
+BinaryOperator<T>
+
+Reduces a stream to a single value of the same type.
+Methods: reduce.
+BiFunction<T, U, R>
+
+Combines two types into a new type.
+Method: reduce (overloaded version).
+Collector<T, A, R>
+
+Used for collecting elements into collections or other results.
+Method: collect.
+Comparator<T>
+
+Used for custom sorting.
+Methods: sorted, max, min.
+IntFunction<R>
+
+Converts a stream to an array.
+Method: toArray.
+
+
+
 
 
 
