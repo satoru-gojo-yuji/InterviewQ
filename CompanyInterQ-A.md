@@ -2048,6 +2048,70 @@ Method: toArray.
 10. Globale exceptions.
 11. Can we use post method as Get method?
 
+1. GET Request Example (Standard)
+A typical GET request is used to retrieve data without modifying the server state.
+
+@GetMapping("/getEmployee/{id}")
+public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
+    Employee employee = employeeService.getEmployeeById(id);
+    if (employee != null) {
+        return ResponseEntity.ok(employee);
+    } else {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+}
+URL: /getEmployee/1
+Purpose: Retrieve an employee's details based on their ID.
+2. POST Request Example (Standard)
+A typical POST request is used for creating new data on the server.
+
+@PostMapping("/createEmployee")
+public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
+    Employee createdEmployee = employeeService.createEmployee(employee);
+    return ResponseEntity.status(HttpStatus.CREATED).body(createdEmployee);
+}
+URL: /createEmployee
+Purpose: Create a new employee record using the provided Employee object in the request body.
+3. POST as GET (Not Recommended)
+You could use POST to retrieve data, although this isn't conventional. Here's how that might look:
+
+@PostMapping("/getEmployeeData")
+public ResponseEntity<Employee> getEmployeeData(@RequestParam Long id) {
+    Employee employee = employeeService.getEmployeeById(id);
+    if (employee != null) {
+        return ResponseEntity.ok(employee);
+    } else {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+}
+URL: /getEmployeeData
+Purpose: Retrieve employee details via a POST request (but this is usually done with GET).
+This approach can be used in scenarios where, for example, you're submitting a form and want to retrieve some data as a response, though it goes against the HTTP standard.
+
+4. GET with Request Parameters
+This example demonstrates using query parameters with a GET request.
+
+@GetMapping("/searchEmployees")
+public ResponseEntity<List<Employee>> searchEmployees(
+    @RequestParam String department, 
+    @RequestParam int minSalary) {
+    
+    List<Employee> employees = employeeService.searchEmployees(department, minSalary);
+    return ResponseEntity.ok(employees);
+}
+URL: /searchEmployees?department=IT&minSalary=50000
+Purpose: Search for employees in a specific department with a salary greater than or equal to a minimum value.
+5. POST with Form Data (Using @RequestParam)
+You can handle form data with a POST method using @RequestParam.
+
+@PostMapping("/submitForm")
+public ResponseEntity<String> submitForm(@RequestParam String name, @RequestParam int age) {
+    // Process form data
+    return ResponseEntity.ok("Form submitted successfully for " + name + ", Age: " + age);
+}
+URL: /submitForm
+Purpose: Handle form submission that sends parameters like name and age to the server.
+
 
 
 
