@@ -2046,6 +2046,7 @@ Method: toArray.
 7. Kafka 
 8. Circuit breakers 
 10. Globale exceptions.
+11. Can we use post method as Get method?
 
 
 
