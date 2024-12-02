@@ -2037,6 +2037,15 @@ Converts a stream to an array.
 Method: toArray.
 
 
+1. Why we use @mock 
+2. @beanmock
+3. Get and load difference 
+4. Fail fast and fail safe
+5. SOLID principals
+6. How to connect with two database 
+7. Kafka 
+8. Circuit breakers 
+10. Globale exceptions.
 
 
 
