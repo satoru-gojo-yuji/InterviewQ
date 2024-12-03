@@ -1991,7 +1991,6 @@ Normally, each thread may keep its own copy of a variable in its CPU cache, lead
 Declaring a variable as volatile ensures that every thread reads the variable directly from the main memory, reflecting the latest value.
 
 
-
 15. list all the stream method name and which funtinal interfsace they are using 
 
 Functional Interfaces Overview
