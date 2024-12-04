@@ -1360,6 +1360,19 @@ throws Keyword
 The throws keyword is used in a method signature to declare that the method might throw one or more exceptions. It informs the caller of the method that the exceptions must be handled or propagated further.
 It is typically used for checked exceptions, which need to be handled explicitly.
 
+
+Examples of Unchecked Exceptions:
+
+NullPointerException:                        Thrown when trying to use null as if it were an object.
+ArrayIndexOutOfBoundsException:              Thrown when accessing an invalid index in an array.
+ArithmeticException:                         Thrown when an invalid arithmetic operation occurs (e.g., division by zero).
+ClassCastException:                          Thrown when trying to cast an object to a subclass it doesn't belong to.
+IllegalArgumentException:                    Thrown when a method receives an argument that is inappropriate.
+NumberFormatException:                       A subclass of IllegalArgumentException, thrown when a string cannot be parsed as a number.
+IllegalStateException:                       Thrown when a method is invoked at an illegal or inappropriate time
+
+
+
 8. How to create our own exception 
 
 Throw your custom exception where needed (e.g., in service or controller methods).
