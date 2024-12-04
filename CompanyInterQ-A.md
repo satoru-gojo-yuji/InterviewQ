@@ -2113,6 +2113,102 @@ Purpose: Handle form submission that sends parameters like name and age to the s
 
 
 
+1. 2. WAP to find the frequency of character using Java 
+
+
+String s ="AbhishekPal"
+
+List<Map<Charectora,Integer>> F = s.chars().maptoObj(r ->(char)r).collect(Collectors.groupingBy(Function.idebtity(),Collectors.counting()).collect(Collectors.toList()); 
+
+
+
+classs Singleton
+{
+private static volitel Singleton s ;
+
+private  Singleton()
+{
+}
+
+public Syncho.  static Singlton getobj()
+{
+if( s  == null)
+{
+ s = new Singleton();
+}
+return s ;
+}
+
+
+"5. Determine if a list of integers is a palindrome.,
+
+Input: [1, 2, 3, 2, 1] → Output: true."
+
+
+ int arr[] =  [1, 2, 3, 2, 1] ;
+
+ List<Integer> f =Arrays.alist(1,2,3,2,1);
+
+
+public Boolean chekcpalindrome()
+{
+
+int left  = 0; 
+int right = list.size()-1 ;
+int reverse = 0 ;
+
+
+while(left < right)
+{
+  int digit  = right % left ;
+   reverse = dighit + (digit * 10);
+  left = right/left ;
+}
+
+for(int i=0 ; i<n/2 ; i++)
+{
+  if(!f.get(i).equals(f.get(n-i-1))
+{
+return flase;
+
+}
+return ture  ;
+
+
+how many object are created
+public class Employee {
+int id;
+String name;
+public Employee(int id, String name) {
+this.id = id;
+this.name = name;
+}
+public static void main(String[] args) {
+Employee e1 = new Employee(123,"abc");
+Employee e2 = new Employee(123,"abc");
+Employee e3 = new Employee(456,"xyz");
+Set<Employee> set = new HashSet<>();
+set.add(e1); 123 456
+set.add(e2);
+set.add(e3);
+}
+}
+
+
+emp.stream().filter(e -> e.startwiht('A')).collect(Collectors.toList);
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
