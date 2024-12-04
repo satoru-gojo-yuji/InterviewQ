@@ -2122,22 +2122,22 @@ List<Map<Charectora,Integer>> F = s.chars().maptoObj(r ->(char)r).collect(Collec
 
 
 
-classs Singleton
-{
-private static volitel Singleton s ;
+class Singleton {
+    // Volatile variable to ensure thread safety
+    private static volatile Singleton instance;
 
-private  Singleton()
-{
+    // Private constructor to prevent instantiation
+    private Singleton() {}
+
+    // Synchronized method to get the single instance
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
 }
 
-public Syncho.  static Singlton getobj()
-{
-if( s  == null)
-{
- s = new Singleton();
-}
-return s ;
-}
 
 
 "5. Determine if a list of integers is a palindrome.,
