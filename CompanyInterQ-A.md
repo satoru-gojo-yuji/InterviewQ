@@ -2197,6 +2197,41 @@ set.add(e3);
 
 emp.stream().filter(e -> e.startwiht('A')).collect(Collectors.toList);
 
+
+1. Difference between Volatile and Transient keywords.
+2. What is a double-check lock?
+3. If Employee objects are keys in a HashMap, what happens if two employees have the same name but different IDs?
+4. What happens if I change the ID of one Employee in a HashMap?
+5. What will the map contain if two employees have the same ID but different values?
+6. What will happen when the value is different but the ID is the same in a HashMap?
+7. What is a factory design pattern?
+8. What is an abstract factory pattern?
+9. When to prefer ArrayList over LinkedList and vice versa?
+10. Difference between final, finally, and finalize keywords.
+11. Difference between synchronized and concurrent connection.\
+12. New features in Java 21 compared to Java 8.
+13. Are features from Java 8 supported in Java 10 and Java 21?
+14. What happened during the transition from Java 8 to Java 21?
+15. What is the implementation and improvement of Virtual Threads in Java 21?
+16. How to avoid deadlock in multi-threading?
+
+
+1) component of spring boot
+2) what are stereo type annotation
+3) java 8 collections
+4) java 8 programming questions
+5)what is functional interface
+6) map vs flatMap difference
+7) oops
+8) hash map internal working
+9) hash code and equals method contract
+10) method overriding and with exception
+11) scenario base question on hashmap
+12) AWS services
+13) what is DI 
+14) Types of DI
+15) AOP
+
   
 
 
