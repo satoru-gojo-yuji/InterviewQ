@@ -238,9 +238,6 @@ public class NonRepeatingCharacter {
 }
 
 
-
-
-
 Given an array of random numbers, push all the zeroes of a given array to the end of the array. For example, if the given array is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same.
 Expected time complexity is O(n) and extra space is O(1).
 
@@ -1345,7 +1342,7 @@ ResponseEntity: This is used to customize the response sent back to the client (
 5. how to remove memory leaked.
 6. @Qualifer and primary.
 
-Use @Primary to designate the default bean when multiple beans of the same type are present.
+Use @Primary to designate the default bean when multiple beans of the same type are present.  
 
 Use @Qualifier when you want to specify a particular bean explicitly.
 
@@ -2245,6 +2242,86 @@ emp.stream().filter(e -> e.startwiht('A')).collect(Collectors.toList);
 14) Types of DI
 15) AOP
 
+
+NTT
+ 1. Difference between abstract class and interface
+ 2. Difference between string and stringbuffer
+ 3. Diff between arraylist and linkedlist
+ 4. Checked and unchecked exception
+ 5. Difference between error and exception
+
+ Definition: Errors represent serious issues that occur at runtime and are mostly related to the environment or the system where the application is running.
+Examples: OutOfMemoryError, StackOverflowError, VirtualMachineError.
+
+6. == Operator and .= Operator
+7. Throw and throws
+ Different Ways of handling exception in java
+ Final, finally and finalize
+Is there any situation where finally will not execute
+
+Using System.exit(int) within the try or catch block.
+JVM crashes due to an internal error or an external interruption.
+java
+Copy code
+public class FinallyTest {
+    public static void main(String[] args) {
+        try {
+            System.out.println("In try block");
+            System.exit(0); // Terminates JVM
+        } finally {
+            System.out.println("In finally block"); // Will not execute
+        }
+    }
+}
+
+Infinite Loops or Non-Terminating Code
+If the try or catch block contains an infinite loop or a long-running operation that never completes, the finally block may not execute.
+
+java
+Copy code
+public class FinallyTest {
+    public static void main(String[] args) {
+        try {
+            while (true) {
+                System.out.println("Infinite loop in try block");
+            }
+        } finally {
+            System.out.println("In finally block"); // Will not execute
+        }
+    }
+}
+
+ Internal working of hashmap
+Calculate the sum of list
+java 8 using stream, find second smallest integer in list
+ Diff between method overloading and overriding
+ Benefits of using spring over spring boot
+ @springbootapplication annotations
+ @pathvariable
+ @Request params
+ Diff between restcontral annotations and @controler
+Why do we use getmaping and postmaping
+ Profiles in spring
+ What is dependency injection and its type
+ Purpose of @qualifier and @primary
+ Difference between microservices and monolithic
+ How do microservices communicate
+ Have you implemented security in your application
+
+ INfocys
+@enableautoconfigure
+Beans
+Hibernet related interface 
+What is JPA 
+What is Spring data JPA and JPA 
+What is HQL
+String hql = "SELECT s.emailId, s.address FROM Student s";
+Query query = session.createQuery(hql);
+List<Object[]> result = query.list();
+HQL and JPA query
+What is session factory and session.
+How to create the custom exception in spring boot
+What is Spring scope
   
 
 
