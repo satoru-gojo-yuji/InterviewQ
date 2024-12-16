@@ -2362,6 +2362,15 @@ HQL and JPA query
 What is session factory and session.
 How to create the custom exception in spring boot
 What is Spring scope
+
+
+1. How to handle the huge number of data it is coming from the another api.
+2. How to convert monolithic architecture to microservices architecture 
+3. What is indexing type of indexing 
+4. String and string buffer and string builders. 
+5. Can we add the data at run time in arrylist 
+6. Saga pattern 
+
   
 
 
