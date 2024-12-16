@@ -1254,6 +1254,7 @@ Trying to convert a string that represents a number larger than the maximum valu
 
 INputMismatch 
 
+
 The InputMismatchException in Java is thrown by the Scanner class when the input provided does not match the expected type. It occurs when the program is expecting a particular type of input (like an integer or a double), but the user enters something that doesn't match that type.
 
 This exception is part of the java.util package.
@@ -1872,6 +1873,32 @@ ClassNotFoundException, SQLException, IOException
 9. @component @service @repositery 
 10. @traditional
 11. Try chatch can run code without  catch 
+
+Try Block Without Catch (With finally block)
+It's possible to have a try block without a catch block, and just use a finally block. The finally block is always executed, regardless of whether an exception was thrown or not, even if the exception is not caught. However, in this case, the exception will propagate if it is not caught in the try block.
+Example:
+
+java
+Copy code
+public class TryWithoutCatch {
+
+    public static void main(String[] args) {
+        try {
+            System.out.println("Before exception");
+            throw new Exception("An exception occurred");
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
+Output:
+
+text
+Copy code
+Before exception
+This will always execute.
+In this case, the exception is thrown but not caught. The finally block is executed before the exception propagates to the caller. The exception will propagate, and if not caught anywhere else in the program, it will cause the program to terminate with an uncaught exception.
+
 12. Fina finally finalized the method difference
 13. How many ways we can handle exception
 14.  Sevice Registery and Service Discovery 
@@ -2047,6 +2074,9 @@ Method: toArray.
 
 
 1. Why we use @mock 
+
+When you use @Mock, it creates a mock object of the specified class or interface. You can then define behavior for that mock object using Mockito methods (e.g., when(), verify()).
+
 2. @beanmock
 3. Get and load difference 
 4. Fail fast and fail safe
@@ -2255,7 +2285,7 @@ Examples: OutOfMemoryError, StackOverflowError, VirtualMachineError.
 
 6. == Operator and .= Operator
 7. Throw and throws
- Different Ways of handling exception in java
+Different Ways of handling exception in java 
  Final, finally and finalize
 Is there any situation where finally will not execute
 
@@ -2313,6 +2343,16 @@ Why do we use getmaping and postmaping
 Beans
 Hibernet related interface 
 What is JPA 
+
+Persistence simply means to Store Permanently.
+
+In JAVA we work with Objects and try to store Object's values into database(RDBMS mostly).
+JPA provides implementation for Object Relation Mapping(ORM) ,so that we can directly store Object into Database as a new Tuple.
+Object, in JPA, are converted to Entity for mapping it to the Table in Database.
+So Persisting an Entity means Permanently Storing Object(Entity) into Database.
+
+Hope this Helps!!
+
 What is Spring data JPA and JPA 
 What is HQL
 String hql = "SELECT s.emailId, s.address FROM Student s";
