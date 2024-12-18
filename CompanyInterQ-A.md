@@ -2327,8 +2327,7 @@ java 8 using stream, find second smallest integer in list
  Diff between method overloading and overriding
  Benefits of using spring over spring boot
  @springbootapplication annotations
- @pathvariable
- @Request params
+ 
  Diff between restcontral annotations and @controler
 Why do we use getmaping and postmaping
  Profiles in spring
@@ -2370,6 +2369,17 @@ What is Spring scope
 4. String and string buffer and string builders. 
 5. Can we add the data at run time in arrylist 
 6. Saga pattern 
+
+ ArrayList is faster for random access
+ ArrayList is faster when adding elements at the end
+ ArrayList is generally faster when removing an element from the end.
+ pointer
+ No, it is not mandatory to create a constructor in a class in Java.
+ 16
+ can we have duplicate key in hashmap
+ @EnableAutoConfiguration annotation, the @SpringBootApplication annotation
+ @SpringBootApplication
+ @interface keyword.
 
   
 
