@@ -2255,6 +2255,14 @@ emp.stream().filter(e -> e.startwiht('A')).collect(Collectors.toList);
 15. What is the implementation and improvement of Virtual Threads in Java 21?
 16. How to avoid deadlock in multi-threading?
 
+ Avoid Nested Locks
+Minimize nested locking wherever possible. Deeply nested locks increase the chance of deadlock.
+
+synchronized (lock1) {
+    synchronized (lock2) {
+        // Operations
+    }
+}
 
 1) component of spring boot
 2) what are stereo type annotation
