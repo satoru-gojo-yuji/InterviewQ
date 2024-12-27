@@ -328,7 +328,7 @@ public abstract class Shape{
 public abstract void draw();
 }
 Example:
-public interface Drawable{
+public   Drawable{
 void draw();
 }
 
@@ -2161,7 +2161,6 @@ String s ="AbhishekPal"
 List<Map<Charectora,Integer>> F = s.chars().maptoObj(r ->(char)r).collect(Collectors.groupingBy(Function.idebtity(),Collectors.counting()).collect(Collectors.toList()); 
 
 
-
 class Singleton {
     // Volatile variable to ensure thread safety
     private static volatile Singleton instance;
@@ -2388,6 +2387,23 @@ What is Spring scope
  @EnableAutoConfiguration annotation, the @SpringBootApplication annotation
  @SpringBootApplication
  @interface keyword.
+
+
+ Exception hierarchy, collection hierarchy, bean & thread lifecycle
+ Spring boot application annotation
+ Immutable claasses, imutability in java,
+ Interface vs abstract class
+ About self and project
+Diff bet hashmap and arraylist
+Set interface , 
+diff bet hashset,linkedhashset, treeset
+Multithreding environment,
+Oops concept
+Overloading and overriding
+How will create immutable class
+Linux command
+Array sorting question need to sort on the basis of occurance of element
+Database question highest of depat salary
 
   
 
