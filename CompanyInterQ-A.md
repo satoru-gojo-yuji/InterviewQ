@@ -808,7 +808,7 @@ Retrieval of elements in LinkedList is very slow compared to ArrayList. Because 
 5. Retrieval operation in ArrayList is of order of O(1).	
 Retrieval operation in LinkedList is of order of O(n).
 
-6. Random Access	ArrayList is of type Random Access. i.e elements can be accessed randomly.	
+6. Random Access ArrayList is of type Random Access. i.e elements can be accessed randomly.	
 LinkedList is not of type Random Access. i.e elements can not be accessed randomly. you have to traverse from beginning or end to reach a particular element.
 
 7. ArrayList can not be used as a Stack or Queue.
@@ -1381,6 +1381,199 @@ Handle the exception globally or locally using @ExceptionHandler or @ControllerA
 11. Arrylist and linkedlist.
 12. Map flatmap difference
 13. Intermediate and terminal operations 
+
+In Java 8, **Stream API** was introduced to process sequences of elements (like collections) in a functional style. Streams can be processed using two types of operations: **intermediate operations** and **terminal operations**.
+
+### **1. Intermediate Operations:**
+Intermediate operations are operations that transform a stream into another stream. They are **lazy**, meaning they are not executed until a terminal operation is invoked. Intermediate operations are used to filter, map, or transform the elements of a stream in various ways.
+
+Some key characteristics of intermediate operations:
+- **Lazy evaluation**: They do not perform any processing until a terminal operation is invoked.
+- **Return a new Stream**: Each intermediate operation produces a new stream, meaning the original stream is not modified.
+- **Can be chained**: Intermediate operations can be chained together to form a pipeline.
+
+#### Common Intermediate Operations:
+1. **`filter(Predicate<T> predicate)`**:
+   - Filters elements based on a given predicate.
+   - Example: Select even numbers from a stream.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+   numbers.stream()
+          .filter(n -> n % 2 == 0)
+          .forEach(System.out::println); // Output: 2, 4, 6
+   ```
+
+2. **`map(Function<T, R> mapper)`**:
+   - Transforms elements using the given function.
+   - Example: Convert each integer to its square.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   numbers.stream()
+          .map(n -> n * n)
+          .forEach(System.out::println); // Output: 1, 4, 9, 16, 25
+   ```
+
+3. **`distinct()`**:
+   - Removes duplicate elements from the stream.
+   - Example: Remove duplicates from a list of numbers.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
+   numbers.stream()
+          .distinct()
+          .forEach(System.out::println); // Output: 1, 2, 3, 4, 5
+   ```
+
+4. **`sorted()`**:
+   - Sorts the elements in natural order or based on a comparator.
+   - Example: Sort the list of numbers in ascending order.
+   ```java
+   List<Integer> numbers = Arrays.asList(5, 3, 4, 1, 2);
+   numbers.stream()
+          .sorted()
+          .forEach(System.out::println); // Output: 1, 2, 3, 4, 5
+   ```
+
+5. **`flatMap(Function<T, Stream<R>> mapper)`**:
+   - Flattens a stream of streams into a single stream.
+   - Example: Convert a list of lists into a single stream of elements.
+   ```java
+   List<List<String>> listOfLists = Arrays.asList(
+       Arrays.asList("a", "b", "c"),
+       Arrays.asList("d", "e"),
+       Arrays.asList("f", "g")
+   );
+
+   listOfLists.stream()
+              .flatMap(Collection::stream)
+              .forEach(System.out::println); // Output: a, b, c, d, e, f, g
+   ```
+
+6. **`peek(Consumer<T> action)`**:
+   - Allows performing an action on each element as it is consumed by the stream. Typically used for debugging.
+   - Example: Peek into the stream for debugging.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   numbers.stream()
+          .peek(n -> System.out.println("Processing " + n))
+          .map(n -> n * 2)
+          .forEach(System.out::println);
+   // Output: Processing 1, Processing 2, Processing 3, ...
+   ```
+
+---
+
+### **2. Terminal Operations:**
+Terminal operations are operations that **consume** the stream and produce a result, such as a single value, a collection, or just a side effect. Once a terminal operation is invoked, the stream is **closed**, and no further operations can be applied to it.
+
+Some key characteristics of terminal operations:
+- **Consumes the stream**: Once a terminal operation is invoked, the stream cannot be reused.
+- **Triggers the processing**: Unlike intermediate operations, terminal operations trigger the processing of the stream.
+- **Produces a result**: The result could be a value, a collection, or some other side effect.
+
+#### Common Terminal Operations:
+1. **`collect(Collector<T, A, R> collector)`**:
+   - Collects the elements of the stream into a container like a `List`, `Set`, or `Map`.
+   - Example: Collect elements into a list.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   List<Integer> result = numbers.stream()
+                                 .filter(n -> n % 2 == 0)
+                                 .collect(Collectors.toList());
+   System.out.println(result); // Output: [2, 4]
+   ```
+
+2. **`forEach(Consumer<T> action)`**:
+   - Performs the given action for each element of the stream.
+   - Example: Print each element of the list.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   numbers.stream()
+          .forEach(System.out::println); // Output: 1, 2, 3, 4, 5
+   ```
+
+3. **`reduce(BinaryOperator<T> accumulator)`**:
+   - Performs a reduction on the elements of the stream using an associative accumulation function, returning an `Optional<T>`.
+   - Example: Calculate the sum of all elements.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   int sum = numbers.stream()
+                    .reduce(0, (a, b) -> a + b);
+   System.out.println(sum); // Output: 15
+   ```
+
+4. **`count()`**:
+   - Counts the number of elements in the stream.
+   - Example: Count the number of elements in a stream.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   long count = numbers.stream()
+                       .count();
+   System.out.println(count); // Output: 5
+   ```
+
+5. **`anyMatch(Predicate<T> predicate)`**:
+   - Returns `true` if any element of the stream matches the given predicate.
+   - Example: Check if there is any even number.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   boolean hasEven = numbers.stream()
+                            .anyMatch(n -> n % 2 == 0);
+   System.out.println(hasEven); // Output: true
+   ```
+
+6. **`allMatch(Predicate<T> predicate)`**:
+   - Returns `true` if all elements of the stream match the given predicate.
+   - Example: Check if all numbers are greater than 0.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   boolean allPositive = numbers.stream()
+                                .allMatch(n -> n > 0);
+   System.out.println(allPositive); // Output: true
+   ```
+
+7. **`noneMatch(Predicate<T> predicate)`**:
+   - Returns `true` if no elements of the stream match the given predicate.
+   - Example: Check if no element is negative.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   boolean noNegative = numbers.stream()
+                               .noneMatch(n -> n < 0);
+   System.out.println(noNegative); // Output: true
+   ```
+
+8. **`findFirst()`**:
+   - Returns the first element of the stream wrapped in an `Optional`.
+   - Example: Find the first element.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   Optional<Integer> first = numbers.stream()
+                                    .findFirst();
+   first.ifPresent(System.out::println); // Output: 1
+   ```
+
+9. **`findAny()`**:
+   - Returns any element from the stream (this operation may be optimized to return an element faster if the stream is parallel).
+   - Example: Find any element.
+   ```java
+   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+   Optional<Integer> any = numbers.stream()
+                                  .findAny();
+   any.ifPresent(System.out::println); // Output: Any element, e.g., 1
+   ```
+
+---
+
+### **Key Differences between Intermediate and Terminal Operations**:
+
+- **Intermediate operations** are **lazy**, meaning they don’t start processing until a terminal operation is invoked.
+- **Terminal operations** trigger the actual processing of the stream and return a result (e.g., a collection, a value, or a side effect).
+- Once a terminal operation is called, the stream is considered consumed, and you cannot reuse it.
+
+### **Summary**:
+- **Intermediate Operations**: Transform the stream into another stream and are lazy (e.g., `map`, `filter`, `distinct`).
+- **Terminal Operations**: Consume the stream and produce a result, triggering the processing (e.g., `collect`, `forEach`, `reduce`).
+
+Both types of operations can be combined in a pipeline to create powerful and efficient data processing flows in Java 8.
 14. Authentication and Automations
 15. How to secure your rest API
 
@@ -1821,6 +2014,36 @@ If any step fails, the orchestrator triggers compensating transactions, like can
 Mphasisi
 
 1. What is covariant return type in java 
+
+// Superclass
+class Animal {
+    // Method returning the Animal type
+    public Animal makeSound() {
+        System.out.println("Animal makes a sound");
+        return new Animal();
+    }
+}
+
+// Subclass
+class Dog extends Animal {
+    // Overriding the makeSound() method and returning a more specific type (Dog)
+    @Override
+    public Dog makeSound() {
+        System.out.println("Dog barks");
+        return new Dog(); // Return type is Dog, which is a subtype of Animal
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.makeSound(); // Calls Animal's makeSound()
+
+        Animal dog = new Dog();
+        dog.makeSound(); // Calls Dog's makeSound() with covariant return type
+    }
+}
+
 2. Different between singleton in java class and singleton design pattern 
 3. How to convert json to DTO and other formats 
 4. Hwo to create the restapi without using restcontroller annotations 
@@ -2026,6 +2249,10 @@ Visibility:
 
 Normally, each thread may keep its own copy of a variable in its CPU cache, leading to inconsistent views of the variable's value across threads.
 Declaring a variable as volatile ensures that every thread reads the variable directly from the main memory, reflecting the latest value.
+
+In multi-threaded programming, Java threads can have their own local caches of variables, and changes made to a variable by one thread may not be immediately visible to other threads. The volatile keyword ensures that when a thread updates the value of a variable, the change is immediately visible to all other threads.
+
+Here are the main reasons why volatile is used:
 
 
 15. list all the stream method name and which funtinal interfsace they are using 
