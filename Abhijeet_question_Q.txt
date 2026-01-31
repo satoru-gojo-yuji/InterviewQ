@@ -1,0 +1,39 @@
+String input="programming" 
+output=progamin
+
+in a parent class one protected method and one private method is present which method will override
+
+how the post and get nmapping will work the complete scenario
+
+controller rest controller difference 
+
+concurrent hashmap locking
+
+try{
+return A;
+}
+catch{
+return B;
+}
+finally{
+return C;
+}
+what is the ouput of the above
+when will finally block execute
+
+second and third highest salary in oracle sql
+
+How all the classes load in java how java know which class to load
+
+Communication between microservices
+
+design pattern in microservices
+
+String str = "Hello";
+String str1 = new StringBuilder("Hello");
+str==str1 ;
+str.equals(str1);
+//output
+ 
+
+
