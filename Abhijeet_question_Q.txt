@@ -34,6 +34,9 @@ String str1 = new StringBuilder("Hello");
 str==str1 ;
 str.equals(str1);
 //output
+
+if String str ="hello"; is present in stringpool by which inbuild fuction we can get this object 
  
+
 
 
