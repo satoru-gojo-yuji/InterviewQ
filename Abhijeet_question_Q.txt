@@ -60,6 +60,16 @@ throw and throws difference
 
 valid parenthesis
 
+metaspace in java
+lazy intiliazation exception
+phantom references references in java
+what is stream
+increase salary by 10% of employee whose salary is less than 20000 in java stream
+bean lifecycle
+while calling the class is there any 
+in between request in spring boot is there any other layer present where the request will hit
+
+
 =========================================================================================================================================================
 # 1. CORE JAVA & OOP (FOUNDATION – MEDIUM → HARD)
 
@@ -319,6 +329,7 @@ valid parenthesis
 
 Tell me what you want to tackle first.
  
+
 
 
 
