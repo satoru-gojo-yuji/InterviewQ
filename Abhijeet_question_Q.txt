@@ -37,18 +37,6 @@ str.equals(str1);
 
 if String str ="hello"; is present in stringpool by which inbuild fuction we can get this object 
 
-
-Below is a *deep, tough, and inclusive Java interview question bank* tailored for a *3-year Java developer, with **extra depth on the most important topics* (Concurrency, JVM/GC, Collections, Java 8+, and Spring).
-This is the kind of list used by *product companies, fintechs, and strong service firms*.
-
-You can treat this as:
-
-* a *self-assessment checklist*
-* a *mock interview script*
-* a *prep tracker* (✔ / ✖)
-
----
-
 simple rest program of hello
 
 10, 50, 30, 20, 50, 40  --> find second largest using stream
@@ -68,9 +56,31 @@ increase salary by 10% of employee whose salary is less than 20000 in java strea
 bean lifecycle
 while calling the class is there any 
 in between request in spring boot is there any other layer present where the request will hit
+Dispatcher Servlet
+
+
+
+
+
 
 
 =========================================================================================================================================================
+
+
+
+
+
+
+Below is a *deep, tough, and inclusive Java interview question bank* tailored for a *3-year Java developer, with **extra depth on the most important topics* (Concurrency, JVM/GC, Collections, Java 8+, and Spring).
+This is the kind of list used by *product companies, fintechs, and strong service firms*.
+
+You can treat this as:
+
+* a *self-assessment checklist*
+* a *mock interview script*
+* a *prep tracker* (✔ / ✖)
+
+---
 # 1. CORE JAVA & OOP (FOUNDATION – MEDIUM → HARD)
 
 ### OOP & Design
@@ -329,6 +339,7 @@ in between request in spring boot is there any other layer present where the req
 
 Tell me what you want to tackle first.
  
+
 
 
 
