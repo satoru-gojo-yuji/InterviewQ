@@ -117,3 +117,93 @@ Introduces new random number generator interfaces and algorithms for better flex
 
 RandomGenerator generator = RandomGenerator.getDefault();
 int value = generator.nextInt(100);
+
+
+Multithreading in Java
+
+
+Creating Threads in Java
+1. By Extending Thread Class
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start(); // Starts a new thread
+    }
+}
+
+
+2. By Implementing Runnable Interface (Recommended)
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Runnable thread is running...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new MyRunnable());
+        t1.start();
+    }
+}
+
+Key Concepts in Java Multithreading
+Thread: Smallest unit of execution.
+Concurrency: Multiple tasks making progress simultaneously.
+Synchronization: Prevents race conditions.
+Deadlock: Two or more threads waiting indefinitely for each other.
+Thread Pool: Reusable collection of worker threads.
+ExecutorService: Preferred API for managing threads.
+Best Practices
+
+✔ Prefer Runnable, Callable, and ExecutorService over extending Thread.
+✔ Minimize shared mutable data.
+✔ Use synchronization carefully.
+✔ Use concurrent collections (ConcurrentHashMap, CopyOnWriteArrayList) when needed.
+✔ Always shut down executors with shutdown().
+
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ExecutorService executor =
+                Executors.newFixedThreadPool(3);
+
+        for(int i=1; i<=10; i++) {
+
+            int taskId = i;
+
+            executor.submit(() -> {
+                System.out.println(
+                        "Task " + taskId +
+                        " executed by " +
+                        Thread.currentThread().getName());
+            });
+        }
+
+        executor.shutdown();
+    }
+}
+
+11. What is Volatile?
+
+Ensures visibility across threads.
+
+volatile boolean flag = true;
+
+Changes made by one thread become visible to others immediately.
+
+12. Difference between volatile and synchronized?
+volatile	synchronized
+Visibility	Visibility + Mutual Exclusion
+No locking	Uses lock
+Faster	Slower
