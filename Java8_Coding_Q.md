@@ -197,6 +197,40 @@ return s1.subString(0,i);
 
 sout(s);
 
+Approach 2: Using Loop
+
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {4, 5, 6};
+
+int[] merged = new int[arr1.length + arr2.length];
+
+int index = 0;
+
+for (int num : arr1) {
+    merged[index++] = num;
+}
+
+for (int num : arr2) {
+    merged[index++] = num;
+}
+
+System.out.println(Arrays.toString(merged));
+
+Approach 3: Java 8 Streams
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {4, 5, 6};
+
+int[] merged = IntStream.concat(
+                    Arrays.stream(arr1),
+                    Arrays.stream(arr2))
+                .toArray();
+
+System.out.println(Arrays.toString(merged));
+
+Output:
+
+[1, 2, 3, 4, 5, 6]
+
 
 
 
