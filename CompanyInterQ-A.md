@@ -2632,6 +2632,82 @@ Linux command
 Array sorting question need to sort on the basis of occurance of element
 Database question highest of depat salary
 
+What does "Stateless" and "Stateful" mean?
+Stateless
+
+A server does not store any client session information between requests.
+
+Each request must contain all information required to process it.
+
+Example
+
+Request 1:
+
+GET /employees/101
+
+Request 2:
+
+GET /employees/102
+
+The server treats both requests independently and doesn't remember anything about the previous request.
+
+This is how REST APIs are designed.
+
+Benefits
+Better scalability
+Easier load balancing
+High performance
+No session management on server
+Stateful
+
+The server remembers client information between requests.
+
+A session is maintained on the server.
+
+Example
+
+Login Request:
+
+POST /login
+
+Server creates:
+
+Session ID = ABC123
+
+Next requests:
+
+GET /profile
+Cookie: JSESSIONID=ABC123
+
+Server uses the session ID to retrieve user information from memory.
+
+This is a stateful interaction.
+
+Why SOAP Can Be Stateful?
+
+SOAP supports session-based conversations.
+
+Example:
+
+Step 1
+
+Client logs in.
+
+Login Successful
+Session ID = XYZ
+Step 2
+
+Client sends another SOAP request.
+
+Session ID = XYZ
+
+Server remembers:
+
+User = Abhishek
+Role = Admin
+
+So the server maintains the state.
+
   
 
 
