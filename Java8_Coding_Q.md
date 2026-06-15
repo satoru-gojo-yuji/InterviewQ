@@ -147,6 +147,56 @@ Output
 fl
 
 
+Find First Non-Repeated Character
+
+string s="AbhishekPal"
+
+s.chars().maptoObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),LindkedhashMap::new,Collectors.counting())
+.entrySet().stream().filter(e -> e.getValue() == 1)map(Map.Entery::getKey).Findfirst().get().
+
+
+Find Duplicate Elements
+
+List<Integer> d = Arrays.asList(1,2,3,4,5,64,5,6);
+
+set<Integer> s = new hasSet<>();
+
+d.stream().filter(e-> !s.add(e)).for(System.out::Print);
+
+
+Find Second Highest Number
+List<Integer> numbers = Arrays.asList(10,20,50,40,30);
+
+
+n.stream().sorted(comparator.reverseOrder()).
+    skip(1).findFirst()
+
+
+Find Highest Paid Employee in Each Department
+
+e.stream().collect(Collectors.groupingBy(e-> e.getDepartment(),Collectors.maxBy(Comparator.comparing(e-> e.getSalary());
+
+
+String sentence = "java spring java kafka spring";
+
+
+Map<String,Integer> result = Arrays.stream(split(" ").collect(Collectors.groupingBy(Function.identity(),Collectors.counting());
+
+
+
+String[] strs = {"flower", "flow", "flight"};
+
+String s = Arrays.stream().reduce((s1,s2) -> {
+      int i = 0
+  while(i < s1.lenght() && i <s2.lenght() && s1.charAt(i) == s2.charAt(i))
+{
+ i++ ;
+}
+return s1.subString(0,i);
+}); 
+
+sout(s);
+
 
 
 
