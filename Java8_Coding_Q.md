@@ -107,11 +107,44 @@ Arrays.stream(g) // Convert into String of arry into stream
         D.entrySet().stream().filter(d -> d.getValue() == 1).forEach(e -> System.out.println(e.getKey()+" "+e.getValue()));
     }
 
+    
 
+If the interviewer asks "Find the longest common prefix in Core Java (without Streams)", this is the most common solution:
 
+public class LongestCommonPrefix {
 
+    public static String findCommonPrefix(String[] strs) {
 
-zjdnv
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+
+        String prefix = strs[0];
+
+        for (int i = 1; i < strs.length; i++) {
+
+            while (!strs[i].startsWith(prefix)) {
+
+                prefix = prefix.substring(0, prefix.length() - 1);  //  remove the last index 
+
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+
+        return prefix;
+    }
+
+    public static void main(String[] args) {
+
+        String[] strs = {"flower", "flow", "flight"};
+
+        System.out.println(findCommonPrefix(strs));
+    }
+}
+Output
+fl
 
 
 
