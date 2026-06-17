@@ -230,8 +230,62 @@ System.out.println(Arrays.toString(merged));
 Output:
 
 [1, 2, 3, 4, 5, 6]
+````````````````````````````````````````````````````````````````````````````````````````````````
+class Main {
+    public static void main(String[] args) {
+      
+        
+        String  s ="AbhishekPallll";  // h = 2
+        // duplicat and and consonet and 
+        
+    Map<Character,Long> resul =s.toLowerCase().chars().mapToObj(c ->(char)c)
+            .filter(Character::isLetter).filter(e -> "aeiou".indexOf(e) == -1)
+            .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+            
+            resul.entrySet().stream().filter(e -> e.getValue() > 1).
+            forEach(e -> System.out.print(e.getKey()+" "+e.getValue()));
+            
+    }
 
+``````````````````````````````````````````````````````````````````````
 
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String s = "abhsiketest2345@gmail.com";
+
+        Map<Character, List<Integer>> map =
+                IntStream.range(0, s.length())
+                        .boxed()
+                        .collect(Collectors.groupingBy(
+                                i -> s.charAt(i),
+                                LinkedHashMap::new,
+                                Collectors.toList()));
+
+        map.forEach((ch, indexes) -> {
+
+            String type;
+
+            if (Character.isLetter(ch))
+                type = "Character";
+            else if (Character.isDigit(ch))
+                type = "Number";
+            else
+                type = "Special Character";
+
+            System.out.println(
+                    ch + " " +
+                    indexes.size() + " " +
+                    indexes + " " +
+                    type);
+        });
+    }
+}
+
+`````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
 
 
