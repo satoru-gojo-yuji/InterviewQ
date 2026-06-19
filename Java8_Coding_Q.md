@@ -286,7 +286,35 @@ public class Main {
 }
 
 `````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+Solution 2 (Recommended for Interviews)
 
+Using Set gives better performance.
+
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {3, 4, 5, 6, 7};
+
+        Set<Integer> set = Arrays.stream(arr2)
+                                 .boxed()
+                                 .collect(Collectors.toSet());
+
+        Arrays.stream(arr1)
+              .filter(set::contains)
+              .forEach(System.out::println);
+    }
+}
+
+Output:
+
+3
+4
+5
+````````````````````````````````````````````````````````````
 
 
 
