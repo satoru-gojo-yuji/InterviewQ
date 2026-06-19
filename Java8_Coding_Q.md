@@ -301,6 +301,51 @@ public class Main {
     }
 }
 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String s = "abhsiketest2345@gmail.com";
+
+        Map<Character, List<Integer>> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char ch = s.charAt(i);
+
+            if (!map.containsKey(ch)) {
+                map.put(ch, new ArrayList<>());
+            }
+
+            map.get(ch).add(i);
+        }
+
+        for (Map.Entry<Character, List<Integer>> entry : map.entrySet()) {
+
+            char ch = entry.getKey();
+            List<Integer> indexes = entry.getValue();
+
+            String type;
+
+            if (Character.isLetter(ch)) {
+                type = "Character";
+            } else if (Character.isDigit(ch)) {
+                type = "Number";
+            } else {
+                type = "Special Character";
+            }
+
+            System.out.println(
+                    ch + " " +
+                    indexes.size() + " " +
+                    indexes + " " +
+                    type
+            );
+        }
+    }
+}
+
 `````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 Solution 2 (Recommended for Interviews)
 
