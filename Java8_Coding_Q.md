@@ -248,7 +248,23 @@ class Main {
     }
 
 ``````````````````````````````````````````````````````````````````````
+Given a string, print each character along with:
 
+Number of occurrences
+Index positions where it appears
+Type of character (Alphabet, Number, or Special Character)
+
+Input:
+
+String s = "abhsiketest2345@gmail.com";
+
+Expected Output (Sample):
+
+a 2 [0, 15] Character
+b 1 [1] Character
+h 1 [2] Character
+2 1 [11] Number
+@ 1 [14] Special Character
 import java.util.*;
 import java.util.stream.*;
 
