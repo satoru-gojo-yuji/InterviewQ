@@ -434,5 +434,18 @@ for(int i=0 ; i<result.length; i++)
     System.out.println();
 }
 
+String s ="Abhishek";
+
+String rev = IntStream.rang(0,s.length())
+mapToObj(i-> s.charAT(s.lenght()-1-i)  // 
+.map(String::ValueOf) // 
+collect(Collectors.joining());
+
+sout(
+
+1 , 2 =  
+emp.stream().sorted(Comparator.compaing(E::getSalaery).reversed()
+.thenComparing(E::getname).forEach(Sout);
+
 
 
