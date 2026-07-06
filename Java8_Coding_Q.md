@@ -471,5 +471,35 @@ public class MoveZeros {
     }
 }
 
+``````````````````````````````````````````````````````````````
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "my name is abhishek";
+
+        String[] words = str.split("\\s+");
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++) {
+
+            String word = words[i];
+
+            // Convert first character to uppercase
+            result.append(Character.toUpperCase(word.charAt(0)))
+                  .append(word.substring(1));
+
+            // Add # after every word except the last one
+            if (i != words.length - 1) {
+                result.append("#");
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+
+`````````````````````````````````````````````````````````````````````
+
 
 
