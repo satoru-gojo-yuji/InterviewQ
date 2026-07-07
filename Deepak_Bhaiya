@@ -1,0 +1,68 @@
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: kafka internal like rebalancing kase hote , offest topic madhe working kase hiotre, Avro schema , jar produce ne update kele kahi messager madhe tar te consumer l akase bettnar , 
+controller node , kafka leaderr , replica, ISR
+
+If emp class there hashcode for that
+java 8 hashmap enhancement 
+cyclic dependency in spriong boot 
+Atomic , volatile keyword in java
+can i replace @service with @controler or @controllerwth@service or @Repository with @@services 
+@treansactionl internal .what are different propagation and isolation level 
+why java 8 stream are lazy 
+senario:-
+How timeout exception u wil hANDLE IN PROD UTION IN API RESDPONSE 
+if DB taking long time to execute how will u handle tha
+java11 feature like string method , var 
+hjav a17 feature like sealed class , recored
+
+Angular:-
+lifecycle hook
+bootstraping process in  angular 
+interceptor i  angular
+lazy loading in angular 
+guard in angualr
+comcpoinentc ommun ication like two way datbinding , @viewchild and @viewchilndrin
+cvontent projection in angular
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: 1. After upgrading from old version to new java version there is performance issue..how to check and fix
+2. After deploying application to production environment the application is failed to start..how to diagnose it
+3. If the same application is used in mobile app and on the website, what to do to have backword compatibility without impacting existing code
+4. If one the rest api is taking more time to execute, how to fix the performance issue
+5. In executorservice there are 10 threads running..and it is using 100% CPU usage..how to check
+6. If the program is throwing out of memory error , how to check and solution 
+7. What will happen if collection is modified while iterating using  ConcurrentHashmap
+8. How to fix circular dependency issue
+9. Garbage collection updates after java 8
+10. If one the service is failing in microservices how to maintain consistency
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: Difference between property binding and interpolation binding
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: spring boot. External configuration 
+Monoltilhik vs microservices
+Challenges in microservices
+Multi database connection 
+How agile flow in ur case 
+Why things u consider while reviewing PR of colleges
+How u achive code coverage
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: Put vs patch in rest api
+How I establish communication in 
+ microservices
+Event driven microservices
+How u have achieved consistency in microservices
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: Difference between synchronised and lock 
+Executorservice 
+Fork join pool
+How to create bean using application context
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: Anonymous inner class vs Lambda expression
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: Conversion of current time to UTC using LocalDateTime
+[5:45 PM, 6/4/2026] Deepak Bhaiya L&T: BNY Mellon questions 
+1. What are types of thread pool 
+2. Write a code to create threads using executor service and followup ques which code is blocking main thread execution 
+3. Write a code to communicate with microservices using rest template 
+4. What is immutable class and what if mutable objects like map is present in the class
+5. Java 17 features..what is record class and use case
+6. How do you deploy your application in current project
+7. Where do you store database username and password 
+8. Which technique using to secure your application 
+9. What is the significance of JWT and  how it works
+10. How to provide authorisation using JWT
+11. Which cases to use public key and private key
+12. Out of 10 messages 5 messages are sent to kafka consumer topic and inbetween got exception how to handle this..how the pending messages will be sent
+13. Where do you maintain/store roles for user to provide authorisation 
+14. What is authentication and authorisation
