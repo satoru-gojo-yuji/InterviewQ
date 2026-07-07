@@ -528,3 +528,28 @@ output: a5b5c5d5
 
 `````````````````````````````````````````````````````````````````````
 
+
+String s[] ={"Abhishek","Pal","Hello"};
+
+find out the which longest String it is. 
+
+  
+String longest =Arrays.stream(s).max(Comparator.comparing(String::length))
+    
+     Sout(longes);
+
+ Arrays.steam().sorted(Comparator.compingInt(String::length).reversed())  // 
+  findFirst();
+
+Int arr[] ={1,2};
+
+last no. 0 
+
+Arryas.strea(arry).reduce(f,S) -> s)
+
+Arrays.stream(arry).skip(arr.length-4)
+forEach(sout).orelse
+
+
+
+
