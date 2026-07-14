@@ -550,6 +550,25 @@ Arryas.strea(arry).reduce(f,S) -> s)
 Arrays.stream(arry).skip(arr.length-4)
 forEach(sout).orelse
 
+``````````````````````````````````````````````````````````
+
+input : 
+
+Abhishek -> [Pune, Mumbai, Hyderabad]
+
+Shankar -> [Pune, Bangalore]
+
+Rahul -> [Mumbai, Bangalore]
+
+Explain this code Map<String, Set<String>> result = candidates.stream() .flatMap(candidate -> candidate.getPreferredLocations() .stream() .map(location -> new AbstractMap.SimpleEntry<>( location, candidate.getName()))) .collect(Collectors.groupingBy( Map.Entry::getKey, Collectors.mapping( Map.Entry::getValue, Collectors.toSet() ) ))
+
+output
+ 
+Pune      -> [Abhishek, Shankar]
+Mumbai    -> [Abhishek, Rahul]
+Hyderabad -> [Abhishek]
+Bangalore -> [Shankar, Rahul]
+
 
 
 
