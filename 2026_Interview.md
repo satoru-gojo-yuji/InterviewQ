@@ -9,7 +9,8 @@
 9. How do you handle database connection pool exhaustion?
 10. How do you improve API performance? 
 
-
+Xorient - 
+Client round - MasterCard
 Cassandra - 
 
 location entity -
