@@ -10,3 +10,94 @@
 10. How do you improve API performance? 
 
 
+Cassandra - 
+
+location entity -
+
+id - 
+name 
+naid - BH19 
+country - 
+
+Optional<String> name =
+Optional.ofNullable(null);
+ 
+System.out.println(
+name.orElse("Default"));  /
+
+String s1 = "Java";
+String s2 = "Java";
+ 
+System.out.println(s1 == s2); //  java - s1,s2 
+
+
+t1 t2 =
+
+sleep(5000) ;
+
+++ 
+
+
+public class Test {
+    public static void main(String[] args) {
+        String value = getValue();  // Ac
+        Optional<String> optional = Optional.ofNullable(value);// Acturl 
+ 
+        System.out.println(optional.orElse(""));  //  optional.orElseGet(() -> getDefault());
+    }
+ 
+    static String getValue() {
+        return "Actual";
+    }
+ 
+    static String getDefault() {
+        System.out.println("Default method called");
+        return "Default";
+    }
+}
+
+Input:
+s = "abcabcbb"  //
+ 
+Output:
+3
+
+int n =s.length();
+int maxlenght = 0;
+int left = 0
+
+set<Character> s1 = new hasSet<>();
+
+for(int right = 0 ; right < n ; right++)
+{
+while(s1.contians(s.chartAt(right))
+{
+s.remove(s.charAt(left));
+left++p;
+}
+
+s1.add(s.chatAt(right));
+maxLenght  = Math.max(maxlength, right - left + 1);
+
+}
+retrun maxlenght;
+
+
+LRUCache(int capacity)
+ 
+int get(int key)
+ 
+void put(int key, int value)
+
+
+Input:
+"swiss"    - 
+ 
+Output:
+'w'
+``
+
+chars().mapToOBj(c-> (Char)c).collect(Collectors.groupingBy(Funtion,identity() LinnkedHasmap::new 
+, Collectores.counting())).entrySet().stream().filter(e -> e.getValue() == 1).findFirest().get();
+
+
