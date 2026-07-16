@@ -101,4 +101,19 @@ Output:
 chars().mapToOBj(c-> (Char)c).collect(Collectors.groupingBy(Funtion,identity() LinnkedHasmap::new 
 , Collectores.counting())).entrySet().stream().filter(e -> e.getValue() == 1).findFirest().get();
 
+`````````````````````````````````````````````````````````````````````````
+
+Map<String,Long> d = new HasMap<>();
+
+d.add("Abhishek", 1);  //
+d.add(
+
+
+
+ Map<String, Long> result = d.entrySet().stream().sorted(Map.Entry.comparingByValue())
+collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue
+(r1,r2) -> r1, LinkedHasMap::new)); 
+
+sourt(result)
+
 
