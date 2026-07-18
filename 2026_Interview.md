@@ -117,4 +117,16 @@ collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue
 
 sourt(result)
 
+````````````````````````````````````````````````````````````````
+
+Find Employees Joined in Last 30 Days
+
+input list em;;
+
+java 8
+
+e.stream().filter(e -> e.getjoiningDate().isAfter(LocalDate.now()
+.minsDay(30)).collect(Collectors.toList());
+
+
 
