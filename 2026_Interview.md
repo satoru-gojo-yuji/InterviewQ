@@ -9,6 +9,7 @@
 9. How do you handle database connection pool exhaustion?
 10. How do you improve API performance? 
 11. how you will check hashaMap contians the same key if hash colition happen 
+12. How to handle huge no of request is coming from the client side to yuor APi
 
 Xorient - 
 Client round - MasterCard
@@ -127,6 +128,8 @@ java 8
 
 e.stream().filter(e -> e.getjoiningDate().isAfter(LocalDate.now()
 .minsDay(30)).collect(Collectors.toList());
+
+
 
 
 
