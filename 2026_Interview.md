@@ -129,6 +129,45 @@ java 8
 e.stream().filter(e -> e.getjoiningDate().isAfter(LocalDate.now()
 .minsDay(30)).collect(Collectors.toList());
 
+`````````````````````````````````````````````````````````
+
+Table - emp
+id - 1
+name - Abhishek 
+salary - 750000
+mangerid - 2
+
+id - 2
+name - abhi
+salary - 50000
+mangerid - 4
+
+print - em id and name em salary more then manger 
+
+Select e.id, e.name 
+From em e 
+Join em m
+on e.manger_id= m.id
+where e.salary > m.salary;
+
+```````````````````````````````````````````````````````````````````
+
+
+  int sum =IntStream.rangeClosed(1, 10)
+        .filter( n -> n%2 == 0).sum();
+        
+        System.out.println(sum);
+
+````````````````````````````````````````````````````````
+/*String s ="Committee"; // t   // C - 1 , m -2
+
+        Map<Character,Long> D =s.chars().mapToObj(c -> (char)c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap:: new,
+                        Collectors.counting()));
+
+        Character result =D.entrySet().stream().filter(e -> e.getValue() > 1).skip(1).map(Map.Entry::getKey).findFirst().orelse(null);
+
+        System.out.println(result);*/
 
 
 
