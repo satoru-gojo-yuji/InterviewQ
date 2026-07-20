@@ -202,6 +202,15 @@ map. Put(e1,10);
 e1.setName("Jane");
 map.get(e1);
 
+``````````````````````````````````````````````````````````````````````````
+
+HCL Client 
+
+Explain this code Map<String, Set<String>> result = candidates.stream() .flatMap(candidate -> candidate.getPreferredLocations() .stream() .map(location -> new AbstractMap.SimpleEntry<>( location, candidate.getName()))) .collect(Collectors.groupingBy( Map.Entry::getKey, Collectors.mapping( Map.Entry::getValue, Collectors.toSet() ) ))
+
+
+
+
 
 
 
