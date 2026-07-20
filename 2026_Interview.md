@@ -169,6 +169,39 @@ where e.salary > m.salary;
 
         System.out.println(result);*/
 
+````````````````````````````````````````````````````````````````````````
+
+list {"Mango","Apple","Banana","Mango","Apple"}
+
+Gorup as per length and 
+
+output Map<5,
+
+
+Map<Interger,List<String>> r =
+s.stream().collect(Collectors.groupingBy(String::length) // 
+5 
+
+s.stream().map(String::toLowercase).collect(Collectors
+.groupingBy(Funtion.identity, Collectors.counting()))
+
+s = "madam" -
+s1 ="";
+for(int i=0; i<s.length()
+
+List<Integer> digits = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        
+        for (int digit : digits) {
+            if (digit == 2) {
+                digits.remove(Integer.valueOf(digit));
+            }
+        }
+
+Employee e1 = new Employee(1, "John");
+map. Put(e1,10);
+e1.setName("Jane");
+map.get(e1);
+
 
 
 
