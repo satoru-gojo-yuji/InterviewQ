@@ -10,6 +10,7 @@
 10. How do you improve API performance? 
 11. how you will check hashaMap contians the same key if hash colition happen 
 12. How to handle huge no of request is coming from the client side to yuor APi
+13. what is 2 pahse commite 
 
 Xorient - 
 Client round - MasterCard

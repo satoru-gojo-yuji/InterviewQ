@@ -23,6 +23,8 @@ guard in angualr
 comcpoinentc ommun ication like two way datbinding , @viewchild and @viewchilndrin
 cvontent projection in angular
 [5:45 PM, 6/4/2026] Deepak Bhaiya L&T: 1. After upgrading from old version to new java version there is performance issue..how to check and fix
+
+
 2. After deploying application to production environment the application is failed to start..how to diagnose it
 3. If the same application is used in mobile app and on the website, what to do to have backword compatibility without impacting existing code
 4. If one the rest api is taking more time to execute, how to fix the performance issue
