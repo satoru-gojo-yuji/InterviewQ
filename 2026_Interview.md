@@ -210,6 +210,48 @@ HCL Client
 Explain this code Map<String, Set<String>> result = candidates.stream() .flatMap(candidate -> candidate.getPreferredLocations() .stream() .map(location -> new AbstractMap.SimpleEntry<>( location, candidate.getName()))) .collect(Collectors.groupingBy( Map.Entry::getKey, Collectors.mapping( Map.Entry::getValue, Collectors.toSet() ) ))
 
 
+`````````````````````````````````````````````````````````````````````````
+
+Mphasis
+
+List<String> d = Arrays.asList("Apple", "Banana", "Grapes");
+
+Map<Character, Long> charCount = d.stream()
+        .flatMap(str -> str.chars()
+                .filter(Character::isLowerCase)
+                .mapToObj(c -> (char) c))
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+        ));
+
+System.out.println(charCount);
+
+Map<Long, List<Character>> result = charCount.entrySet()
+        .stream()
+        .collect(Collectors.groupingBy(
+                Map.Entry::getValue,
+                TreeMap::new,
+                Collectors.mapping(
+                        Map.Entry::getKey,
+                        Collectors.toList()
+                )
+        ));
+
+result.forEach((count, chars) ->
+        System.out.println(count + " -> " + chars));
+
+output : 
+
+1 -> [l,r,s]
+
+2 -> [e,n]
+
+3 -> [p]
+
+4 -> [a]
+
+
 
 
 
