@@ -11,6 +11,9 @@
 11. how you will check hashaMap contians the same key if hash colition happen 
 12. How to handle huge no of request is coming from the client side to yuor APi
 13. what is 2 pahse commite 
+14. What is a disadvantage of microservices
+15. What is a Stored Procedure?
+16. intern method in Java string and also explain its purpose.
 
 Xorient - 
 Client round - MasterCard
@@ -250,6 +253,27 @@ output :
 3 -> [p]
 
 4 -> [a]
+
+`````````````````````````````````````````````````````````````````````````````
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+
+       Map<Integer,Integer>  d = new HashMap<>();
+
+       for(int i=0; i<nums.length; i++)
+       {
+        int com = target - nums[i];
+
+        if(d.containsKey(com))
+        {
+            return new int[] {d.get(com), i};
+        }
+        d.put(nums[i - 1]);
+       }
+       return new int[]{-1 , -1};
+    }
+}
 
 
 
