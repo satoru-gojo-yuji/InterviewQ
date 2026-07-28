@@ -275,7 +275,13 @@ class Solution {
     }
 }
 
+````````````````````````````````````````````````````````
 
+ String D =Arrays.stream(input.split("\\s+")).
+        map(w -> Character.toUpperCase(w.charAt(0)) + w.substring(1))
+        .collect(Collectors.joining(" "));
+        
+        System.out.print(D);
 
 
 
