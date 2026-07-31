@@ -14,6 +14,11 @@
 14. What is a disadvantage of microservices
 15. What is a Stored Procedure?
 16. intern method in Java string and also explain its purpose.
+17. How to handle the 10k request API in spring boot 
+18. what is the use of executor framwork 
+19. what is the of compatable feature 
+20. how to authenticate the 3th party APi through webclient and rest client 
+21. how to configuer the config server 
 
 Xorient - 
 Client round - MasterCard
