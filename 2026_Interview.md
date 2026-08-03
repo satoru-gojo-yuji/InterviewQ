@@ -19,6 +19,10 @@
 19. what is the of compatable feature 
 20. how to authenticate the 3th party APi through webclient and rest client 
 21. how to configuer the config server 
+22. How to use circuite breaker and retry in application
+23. How to handle 10k api request is coming from to your application without loadbanalcer 
+24. how to validate the 3th party api thourgh webclient authentication 
+25. 
 
 Xorient - 
 Client round - MasterCard
@@ -274,7 +278,7 @@ class Solution {
         {
             return new int[] {d.get(com), i};
         }
-        d.put(nums[i - 1]);
+        d.put(nums[i] ,i);
        }
        return new int[]{-1 , -1};
     }
@@ -287,6 +291,8 @@ class Solution {
         .collect(Collectors.joining(" "));
         
         System.out.print(D);
+
+``````````````````````````````````````````````````
 
 
 
