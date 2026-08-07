@@ -22,7 +22,8 @@
 22. How to use circuite breaker and retry in application
 23. How to handle 10k api request is coming from to your application without loadbanalcer 
 24. how to validate the 3th party api thourgh webclient authentication 
-25. 
+25. Dobile lock for singleton pattern 
+26. What will happend if we not override equal and hascode method or if we override hascode and not equal then wiseversa for this
 
 Xorient - 
 Client round - MasterCard
