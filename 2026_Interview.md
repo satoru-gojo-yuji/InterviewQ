@@ -295,6 +295,44 @@ class Solution {
 
 ``````````````````````````````````````````````````
 
+ /*  List of Integers need to find maximum duplicate one with it's frequency
+ 
+Online Java Compiler - Programiz*/
+ 
+       int[] arr ={1,2,3,2,2,6,6,7,8,9}; // 2- 2
+       
+       /* Map<Integer,Long> s =Arrays.stream(arr).boxed().
+        collect(Collectors.groupingBy(Function.identity(),Collectors.counting())) ;  // 2 - 3, 4,-2
+        
+        Map.Entry<Integer,Long> result =s.entrySet().stream().
+        max(Map.Entry.comparingByValue()).get();
+      
+      System.out.println(result.getKey()+" "+result.getValue()); */ 
+      
+      int maxE =arr[0];
+      int maxF=0 ;
+      
+      for(int i=0; i<arr.length; i++)
+      {
+          int count = 0 ;
+          
+          for(int j=0; j<arr.length; j++) // 
+          {
+              if(arr[i] == arr[j])
+              {
+                  count++;
+              }
+          }
+          
+          if(count > maxF)
+          {
+              maxF = count;
+              maxE = arr[i];
+          }
+      }
+      
+      System.out.println(maxE+" "+maxF);
+
 
 
 
