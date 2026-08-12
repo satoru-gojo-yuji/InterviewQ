@@ -24,6 +24,7 @@
 24. how to validate the 3th party api thourgh webclient authentication 
 25. Dobile lock for singleton pattern 
 26. What will happend if we not override equal and hascode method or if we override hascode and not equal then wiseversa for this
+27. Stored p
 
 Xorient - 
 Client round - MasterCard
@@ -299,7 +300,7 @@ class Solution {
  
 Online Java Compiler - Programiz*/
  
-       int[] arr ={1,2,3,2,2,6,6,7,8,9}; // 2- 2
+       int[] arr ={1,2,3,2,2,6,6,7,8,9}; // 2- 2  
        
        /* Map<Integer,Long> s =Arrays.stream(arr).boxed().
         collect(Collectors.groupingBy(Function.identity(),Collectors.counting())) ;  // 2 - 3, 4,-2
@@ -333,6 +334,37 @@ Online Java Compiler - Programiz*/
       
       System.out.println(maxE+" "+maxF);
 
+````````````````````````````````````````````````````````
+
+int[] arr ={1,2,3,4};
+        int target = 5;
+
+        Map<Integer,Integer> d = new HashMap<>();
+
+        int count = 0;
+
+        for(int n : arr)
+        {
+            int com = target - n;
+
+            if(d.containsKey(com))
+            {
+                count++;
+            }
+
+            d.put(n, 1);
+        }
+        System.out.print(count);
+
+``````````````````````````````````````````````````````
+
+String s ="bababc";
+
+        //b3a2c1
+
+        String result =s.chars().mapToObj(c ->(char)c).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting())).entrySet().stream().map(e -> e.getKey()+""+e.getValue()).collect(Collectors.joining());
+
+        System.out.println(result);
 
 
 
