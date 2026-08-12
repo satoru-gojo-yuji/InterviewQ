@@ -24,7 +24,7 @@
 24. how to validate the 3th party api thourgh webclient authentication 
 25. Dobile lock for singleton pattern 
 26. What will happend if we not override equal and hascode method or if we override hascode and not equal then wiseversa for this
-27. Stored p
+27. what is stored procedure in Spring Boot?
 
 Xorient - 
 Client round - MasterCard
