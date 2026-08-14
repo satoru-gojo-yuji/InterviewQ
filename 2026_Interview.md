@@ -25,6 +25,7 @@
 25. Dobile lock for singleton pattern 
 26. What will happend if we not override equal and hascode method or if we override hascode and not equal then wiseversa for this
 27. what is stored procedure in Spring Boot?
+28. Propogration level of @Transaction 
 
 Xorient - 
 Client round - MasterCard
@@ -365,6 +366,33 @@ String s ="bababc";
         String result =s.chars().mapToObj(c ->(char)c).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting())).entrySet().stream().map(e -> e.getKey()+""+e.getValue()).collect(Collectors.joining());
 
         System.out.println(result);
+
+
+```````````````````````````````````````````````````````````````````
+
+String s ="(){}[]";
+
+    Deque<Character> s1 = new Deques<>(); // 
+
+    for(char ch : s.toCharArray())
+    {
+        if(ch =='(' || ch == '{' || ch == '[')
+        {
+           s1.push(ch);
+        }else
+        {
+            if(s1.isEmpty())
+            {
+                System.out.print("Not Matching");
+            }
+        
+        char open = s1.pop();  // 
+        if((ch == ')' && open != '(') || 
+        (ch == '}' && open != '{') || (ch == ']' && open != '['))
+        {
+             System.out.print("Not Matching");
+        }
+    }
 
 
 
