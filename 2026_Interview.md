@@ -26,6 +26,7 @@
 26. What will happend if we not override equal and hascode method or if we override hascode and not equal then wiseversa for this
 27. what is stored procedure in Spring Boot?
 28. Propogration level of @Transaction 
+29. How to create our own annotations
 
 Xorient - 
 Client round - MasterCard
@@ -393,6 +394,57 @@ String s ="(){}[]";
              System.out.print("Not Matching");
         }
     }
+
+`````````````````````````````````````````````````````````````````````````````
+
+String s = "Abhishek  Abhishek   Pal Abhishek";
+
+Map<String, Long> result = Arrays.stream(s.split("\\s+"))
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+        ))
+        .entrySet()
+        .stream()
+        .filter(e -> e.getValue() > 2)
+        .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue
+        ));
+
+System.out.println(result);
+
+
+```````````````````````````````````````````````````````````````````````
+
+String[] arr = {
+    "Abhishek Pal",
+    "Abhishek Kumar",
+    "Pal Abhishek"
+};
+
+Map<String, Long> result = Arrays.stream(arr)
+        .flatMap(s -> Arrays.stream(s.split("\\s+")))
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+        ))
+        .entrySet()
+        .stream()
+        .filter(e -> e.getValue() > 2)
+        .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue
+        ));
+
+
+`````````````````````````````````````````````````````````````````````````````
+
+List<String> list = Arrays.asList(
+    "Abhishek Pal",
+    "Abhishek Kumar",
+    "Pal Singh"
+);
 
 
 
