@@ -446,6 +446,18 @@ List<String> list = Arrays.asList(
     "Pal Singh"
 );
 
+`````````````````````````````````````````````````````````````````````````````
 
+ String s ="javadevelopers";  
+
+        // output = e - 3
+
+         Optional<Character> c1 =s.chars().mapToObj(c -> (char)c).collect(Collectors.groupingBy(Function.identity(),
+         Collectors.counting())).entrySet().
+         stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey);
+
+         System.out.println(c1);
+
+         
 
 
